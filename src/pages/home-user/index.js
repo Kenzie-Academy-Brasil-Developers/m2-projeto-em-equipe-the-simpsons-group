@@ -11,6 +11,11 @@ export async function apiRequestAllPets (){
    return responseJson
 }
 
+export async function apiRequestCreateAdoption(){
+    
+}
+
+
 
 export async function renderListAllPetsForAdoption(){
 
