@@ -1,4 +1,5 @@
 import {getProfile} from "../../scripts/apiUser.js"
+import {createModal} from "../../scripts/modal.js"
 
 async function renderInfoProfile(){
     const infoProfile = await getProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDEwMjksImV4cCI6MTY2ODQ0NTgyOSwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.BBH4C2YBhqecLR1LBlB0UAEXah0OtLUeECasEGsMTUk")
