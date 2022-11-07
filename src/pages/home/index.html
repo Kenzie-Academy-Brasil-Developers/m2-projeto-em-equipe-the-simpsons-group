@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../styles/globalStyle.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/flex.css">
+    <link rel="stylesheet" href="../../styles/fonts.css">
+    <link rel="stylesheet" href="../../styles/animations.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/inputs.css">
+    <link rel="stylesheet" href="../../styles/spaces.css">
+    <link rel="stylesheet" href="../../styles/toastfy.css">
+   
+
+    <link rel="stylesheet" href="./index.css">
     <title>Home</title>
 </head>
-<body>
-    
+<body class="flex flex-col justify-between ">
+   
+    <header class=" flex items-center ">
+       
+        <div class="container flex items-center">
+        <div class="headerBoxLeft flex justify-between">
+            <h2 class="font-size-1 font-weight-1 color-brand-1">KenziePets</h2>
+            <img src="../../assets/img/menu-burguer.svg" alt="" id="btn-burguer">
+        </div>
+        <div class="headerBoxRight justify-between items-center">
+            <button class="button-outline-brand-1" id="btn-register">Register</button>
+            <button class="button-default-brand-1" id="btn-login">Login</button>
+        </div>
+       </div>
+
+    </header>
+
+    <main>
+        <ul class="list-all-pets flex">
+         
+        </ul>
+    </main>
+
+    <footer class="flex items-center justify-center ">
+        <span class="font-size-5 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
+    </footer>
+
+    <script type="module" src="./index.js"></script>
 </body>
 </html>
