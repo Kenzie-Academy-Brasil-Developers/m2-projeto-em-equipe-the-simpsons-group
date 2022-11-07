@@ -21,8 +21,20 @@
     <link rel="stylesheet" href="./index.css">
     <title>Home</title>
 </head>
-<body>
-    <header>
+<body class="flex flex-col justify-between ">
+   
+    <header class=" flex items-center ">
+       
+        <div class="container flex items-center">
+        <div class="headerBoxLeft flex justify-between">
+            <h2 class="font-size-1 font-weight-1 color-brand-1">KenziePets</h2>
+            <img src="../../assets/img/menu-burguer.svg" alt="" id="btn-burguer">
+        </div>
+        <div class="headerBoxRight justify-between items-center">
+            <button class="button-outline-brand-1" id="btn-register">Register</button>
+            <button class="button-default-brand-1" id="btn-login">Login</button>
+        </div>
+       </div>
 
     </header>
 
@@ -32,7 +44,9 @@
         </ul>
     </main>
 
-
+    <footer class="flex items-center justify-center ">
+        <span class="font-size-5 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
+    </footer>
 
     <script type="module" src="./index.js"></script>
 </body>
