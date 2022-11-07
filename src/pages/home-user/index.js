@@ -16,11 +16,15 @@ export async function renderListAllPetsForAdoption(){
         if (element.available_for_adoption == true){
             const li = document.createElement("li")
             ul.appendChild(li)
-            li.classList = "card-pet flex flex-col"
+            li.classList = "card-pet flex flex-col justify-between items-center"
     
                 const img = document.createElement("img")
                 li.appendChild(img)
                 img.src = element.avatar_url
+
+                    img.addEventListener("error",(e)=>{
+                        img.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
+                    })
     
                 const h3 = document.createElement("h3")
                 li.appendChild(h3)
@@ -29,7 +33,7 @@ export async function renderListAllPetsForAdoption(){
     
                 const span = document.createElement("span")
                 li.appendChild(span)
-                span.classList = "font-size-6 color-black-1"
+                span.classList = "font-size-3 color-brand-1"
                 span.innerText = element.species
 
                 const btnAdoption = document.createElement("button")
