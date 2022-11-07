@@ -1,3 +1,5 @@
+import { getMyPets } from "../../scripts/apiPets";
+
 async function renderCardsPets(){
 
     const ul = document.getElementById("ulCardsPets");
@@ -26,7 +28,10 @@ async function renderCardsPets(){
     pName.innerText = "Nome:";
     pSpecie.innerText = "Espécies:";
     pAvailable.innerText = "Adotável:";
-    btnAtt.innerText = "Atualizar"
+    btnAtt.innerText = "Atualizar";
+    spanAvailable.innerText = "Sim";
+    spanName.innerText = "Bidu";
+    spanSpecie.innerText = "Cachorro";
 
     pAvailable.append(spanAvailable);
     pName.append(spanName);
@@ -39,3 +44,17 @@ async function renderCardsPets(){
 }
 
 renderCardsPets()
+
+/*
+
+<li class="cardPet flex">
+    <div class="imgPets"></div>
+    <div class="divDescription flex flex-col justify-center">
+        <p id="" class="font-size-4 color-brand-1">Nome: <span class="font-size-4 color-black-1">Bidu</span></p>
+        <p id="" class="font-size-4 color-brand-1">Espécie: <span class="font-size-4 color-black-1">Cachorro</span></p>
+        <p id="" class="font-size-4 color-brand-1">Adotável: <span class="font-size-4 color-black-1">Sim</span></p>
+        <button>Atualizar</button>
+    </div>
+</li>
+
+*/
