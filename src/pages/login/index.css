@@ -31,12 +31,12 @@ main, #input-email, #input-password,  #btn-login{
 
 .img-dog, .img-cat{
     object-fit: contain;
-    pointer-events: none;
 }
 
 .img-dog{
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .img-cat{
