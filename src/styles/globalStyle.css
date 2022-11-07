@@ -1,0 +1,21 @@
+@charset "UTF-8";
+:root{
+    --color-brand-1: #4E2096;
+    --color-brand2: #B48CF2;
+    --color-black-1:  #000000;
+    --color-white-1:  #FFFFFF;
+    --color-red-1:  #EA534A;
+    --color-green-1:  #33CC66;
+    --color-grey-1:  #EEEEEE;
+    --color-grey-2:#90A4AE;
+    --font-size-1: 1.75rem;
+    --font-size-2: 1.5rem;
+    --font-size-3: 1rem;
+    --font-size-4: 0.875rem;
+    --font-size-5: 0.75rem;
+    --font-size-6: 0.5rem;
+    --font-weight-1: 700;
+    --font-weight-2: 600;
+    --font-weight-3: 400;
+    --line-height: 150%
+}
