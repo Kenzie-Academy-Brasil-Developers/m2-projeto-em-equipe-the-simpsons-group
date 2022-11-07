@@ -4,11 +4,13 @@ import { getMyPets } from "../../scripts/apiPets.js";
 import {createModal, modalAttPet, modalRegisterPet} from "../../scripts/modal.js"
 
 
-async function renderCardsPets(database){
+async function renderCardsPets(){
 
+    const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
     const ul = document.getElementById("ulCardsPets");
+    ul.innerHTML = ""
 
-    database.forEach(element => {
+    pets.forEach(element => {
         const li = document.createElement("li");
         const imgPets = document.createElement("img");
         const divDescription = document.createElement("div");
@@ -51,7 +53,12 @@ async function renderCardsPets(database){
             spanAvailable.innerText = "Não";
 
         }
-        imgPets.src = "avatar_url";
+        imgPets.src = element.avatar_url;
+            
+            imgPets.addEventListener("error",(e)=>{
+                imgPets.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
+            })
+
         spanName.innerText = element.name;
         spanSpecie.innerText = element.species;
 
@@ -74,10 +81,9 @@ btnRegister.addEventListener("click",() => {
 
 })
 
-const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
-renderCardsPets(pets)
 
 renderCardsPets()
+
 
 
 async function renderInfoProfile(){
@@ -115,7 +121,7 @@ async function renderInfoProfile(){
 
 renderInfoProfile()
 
-//window.addEventListener("DOMContentLoaded",()=>{
+
 
     const btnBurguer = document.querySelector("#btn-burguer")
     const headerBoxRight = document.querySelector(".headerBoxRight")
@@ -140,5 +146,5 @@ renderInfoProfile()
     btnHome.addEventListener("click",(e)=>{
         window.location.replace("../home-user/index.html");
     })
-//})
+
 
