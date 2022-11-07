@@ -1,5 +1,13 @@
+body{
+    height: 100vh;
+    
+}
+main{
+    margin-top: 50px;
+}
 .list-all-pets{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     max-width: 400px;
     gap: 60px;
     overflow: auto;
@@ -21,3 +29,32 @@
             object-fit: cover;
             background-color: red;
         }
+
+
+
+@media(min-width:500px){
+    .list-all-pets{
+        flex-wrap: wrap;
+        max-width: 500px;
+        height: 620px;
+    }
+    .card-pet{
+      width: 200px;  
+    }
+}
+
+@media(min-width:800px){
+    .list-all-pets{
+        flex-wrap: wrap;
+        max-width: 750px;
+    }
+       
+}
+
+@media(min-width:1000px){
+    .list-all-pets{
+        flex-wrap: wrap;
+        max-width: 1000px;
+    }
+   
+}

@@ -44,4 +44,31 @@ export async function renderListAllPets (){
 
 }
 
-renderListAllPets ()
+
+
+window.addEventListener("DOMContentLoaded",()=>{
+    renderListAllPets ()
+
+    const btnBurguer = document.querySelector("#btn-burguer")
+    const headerBoxRight = document.querySelector(".headerBoxRight")
+    const btnLogin = document.querySelector("#btn-login")
+    const btnRegister = document.querySelector("#btn-register")
+
+    btnBurguer.addEventListener("click",(e)=>{
+     
+        if (headerBoxRight.classList.contains("show")){
+            headerBoxRight.classList = "headerBoxRight justify-around items-center"
+        }else{
+            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
+        }
+        
+    })
+
+    btnLogin.addEventListener("click",(e)=>{
+        window.location.replace("../login/index.html")
+    })
+
+    btnRegister.addEventListener("click",(e)=>{
+        window.location.replace("../register/index.html")
+    })
+})
