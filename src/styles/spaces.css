@@ -1,0 +1,22 @@
+@charset "UTF-8";
+.gap-small{
+    gap: 1rem;
+}
+.gap-medium{
+    gap: 1.5rem;
+}
+.gap-big{
+    gap: 2.8rem;
+}
+.margin-top-small{
+    margin-top: 2rem;
+}
+.margin-top-big{
+    margin-top: 7rem;
+}
+.margin-bottom-big{
+    margin-bottom: 7rem;
+}
+.padding-big{
+    padding: 6rem 0rem;
+}
