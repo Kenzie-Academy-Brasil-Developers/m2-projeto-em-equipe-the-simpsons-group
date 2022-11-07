@@ -1,0 +1,5 @@
+.inputs-login-register{
+    border: 2px solid var(--color-black-1);
+    border-radius: 1rem;
+    padding: 1rem;
+}
