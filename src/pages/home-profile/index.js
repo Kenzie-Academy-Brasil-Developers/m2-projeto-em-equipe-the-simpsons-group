@@ -1,8 +1,7 @@
 
 import { getProfile } from "../../scripts/apiUser.js";
 import { getMyPets } from "../../scripts/apiPets.js";
-import {createModal} from "../../scripts/modal.js"
-
+import {createModal, modalAttPet, modalRegisterPet} from "../../scripts/modal.js"
 
 
 async function renderCardsPets(database){
@@ -33,6 +32,12 @@ async function renderCardsPets(database){
         spanAvailable.classList.add("font-size-4", "color-black-1");
         btnAtt.classList.add("button-default-brand-1");
 
+        btnAtt.addEventListener("click",() => {
+
+            modalAttPet();
+
+        })
+
         pName.innerText = "Nome:";
         pSpecie.innerText = "Espécies:";
         pAvailable.innerText = "Adotável:";
@@ -61,10 +66,17 @@ async function renderCardsPets(database){
 
 }
 
+const btnRegister = document.getElementById("btnRegisterNewPet");
+
+btnRegister.addEventListener("click",() => {
+
+    modalRegisterPet();
+
+})
+
 const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
 renderCardsPets(pets)
 
-}
 renderCardsPets()
 
 
@@ -82,8 +94,8 @@ async function renderInfoProfile(){
                 <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
             </div>
             <div class="TextBtns flex gap-small">
-                <button class="refreshBtn">Atualizar informações</button>
-                <button class="deleteBtn">Deletar conta</button>
+                <button class="refreshBtn button-default-brand-1">Atualizar informações</button>
+                <button class="deleteBtn button-outline-red-1">Deletar conta</button>
             </div>
         </div>
     </div>`)
