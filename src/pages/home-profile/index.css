@@ -43,7 +43,8 @@
 
 .boxText{
     padding: 24px;    
-    width: 480px;
+    width: 90%;
+    max-width: 480px;
     height: 254px;
     box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
     border-radius: 4px;
@@ -53,6 +54,11 @@
     width: 100%;
     gap: 0.5rem;
 }
+
+@media (min-width:900px){
+    .boxText{  
+        max-width: 480px;
+    }
 
 
 
@@ -78,3 +84,6 @@
     }
 
 }
+
+}
+

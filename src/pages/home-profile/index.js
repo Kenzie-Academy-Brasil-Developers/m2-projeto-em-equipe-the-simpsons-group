@@ -1,5 +1,8 @@
+
 import { getProfile } from "../../scripts/apiUser.js";
 import { getMyPets } from "../../scripts/apiPets.js";
+import {createModal} from "../../scripts/modal.js"
+
 
 
 async function renderCardsPets(database){
@@ -17,6 +20,7 @@ async function renderCardsPets(database){
         const spanSpecie = document.createElement("span");
         const spanAvailable = document.createElement("span");
         const btnAtt = document.createElement("button");
+
 
         li.classList.add("cardPet", "flex");
         imgPets.classList.add("imgPets");
@@ -60,6 +64,10 @@ async function renderCardsPets(database){
 const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
 renderCardsPets(pets)
 
+}
+renderCardsPets()
+
+
 async function renderInfoProfile(){
     const infoProfile = await getProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4")
     const sectionUserProfile = document.querySelector(".sectionUserProfile")
@@ -68,8 +76,8 @@ async function renderInfoProfile(){
     <div class="boxProfile flex flex-col items-center justify-center">                
         <img src=${infoProfile.avatar_url} alt="" class="imgProfile margin-bottom-small">
         <div class="boxText flex flex-col gap-small items-center">
-            <h2 class="TextTitle color-brand-1 font-size-2">Dados pessoais</h2>
-            <div class="TextCont flex flex-col margin-bottom-small">
+            <h2 class="textTitle color-brand-1 font-size-2">Dados pessoais</h2>
+            <div class="textCont flex flex-col margin-bottom-small">
                 <p class="textName font-weight-3"><strong class="color-brand-1">Nome: </strong>${infoProfile.name}</p>
                 <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
             </div>
@@ -79,6 +87,18 @@ async function renderInfoProfile(){
             </div>
         </div>
     </div>`)
+
+    const refreshBtn = document.querySelector(".refreshBtn")    
+    const deleteBtn = document.querySelector(".deleteBtn")
+
+    refreshBtn.addEventListener("click",()=>{
+        createModal()
+    })
+
+    deleteBtn.addEventListener("click",()=>{
+        createModal()
+    })
+    
 }
 
 renderInfoProfile()
