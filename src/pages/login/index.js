@@ -56,6 +56,7 @@ function login(){
         }else{
             console.log(resp)
             localStorage.setItem("@kenziePet:Token", resp.token)
+            window.location.replace("../home-user/index.html")
         }
 
     
