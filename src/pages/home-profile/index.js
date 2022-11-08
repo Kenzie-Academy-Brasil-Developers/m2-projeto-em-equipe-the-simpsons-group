@@ -189,28 +189,6 @@ const headerBoxRight = document.querySelector(".headerBoxRight")
 const btnHome = document.querySelector("#btn-home")
 const btnLogout = document.querySelector("#btn-logout")
 
-btnBurguer.addEventListener("click",(e)=>{
-
-    if (headerBoxRight.classList.contains("show")){
-        headerBoxRight.classList = "headerBoxRight justify-around items-center"
-    }else{
-        headerBoxRight.classList = "headerBoxRight justify-around items-center show"
-    }
-    
-})
-
-
-btnLogout.addEventListener("click",(e)=>{
-    window.location.replace("../home/index.html");
-    localStorage.removeItem("@kenziePet:Token");
-})
-
-btnHome.addEventListener("click",(e)=>{
-    window.location.replace("../home-user/index.html");
-})
-
-
-
     btnBurguer.addEventListener("click",(e)=>{
      
         if (headerBoxRight.classList.contains("show")){
@@ -234,6 +212,10 @@ btnHome.addEventListener("click",(e)=>{
         window.location.replace("../home/index.html");
         localStorage.removeItem("@kenziePet:Token");
     })
+
+    btnHome.addEventListener("click",(e)=>{
+    window.location.replace("../home-user/index.html");
+})
 
 
 
