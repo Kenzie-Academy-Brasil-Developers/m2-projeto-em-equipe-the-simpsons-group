@@ -68,13 +68,22 @@ window.addEventListener("DOMContentLoaded",()=>{
         const btnLogout = document.querySelector("#btn-logout")
     
         btnBurguer.addEventListener("click",(e)=>{
-         
+     
             if (headerBoxRight.classList.contains("show")){
-                headerBoxRight.classList = "headerBoxRight justify-around items-center"
+                headerBoxRight.classList = "headerBoxRight justify-between items-center"
+                btnBurguer.src = "../../assets/img/menu-burguer.svg"
             }else{
-                headerBoxRight.classList = "headerBoxRight justify-around items-center show"
+                headerBoxRight.classList = "headerBoxRight justify-between items-center show"
+                btnBurguer.src = "../../assets/img/close.svg"
             }
             
+        })
+    
+        window.addEventListener("resize", ()=>{
+            if(window.screen.width >= 500){
+                headerBoxRight.classList = "headerBoxRight justify-between items-center"
+                btnBurguer.src = "../../assets/img/menu-burguer.svg"
+            }
         })
     
         btnPerfil.addEventListener("click",(e)=>{
