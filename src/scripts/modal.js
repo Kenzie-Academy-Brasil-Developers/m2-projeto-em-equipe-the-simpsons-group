@@ -10,6 +10,7 @@ export function modalRegisterPet() {
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
     const inputSpecies = document.createElement("input");
+    const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const btnRegister = document.createElement("button");
     const form = document.createElement("form");
@@ -22,14 +23,16 @@ export function modalRegisterPet() {
     form.classList.add("flex", "flex-col");
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
+    inputBread.id = "bread";
     inputSpecies.id = "species";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
     btnRegister.innerText = "Cadastrar";
     inputAvatar.placeholder = "Avatar";
+    inputBread.placeholder = "Raça";
     inputName.placeholder = "Nome";
-    inputSpecies.placeholder = "Raça";
+    inputSpecies.placeholder = "Espécie";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Cadastrar Pet";
 
@@ -39,7 +42,7 @@ export function modalRegisterPet() {
 
     })
 
-    form.append(inputName, inputSpecies, inputAvatar, btnRegister);
+    form.append(inputName, inputSpecies, inputAvatar, inputBread,btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -62,6 +65,7 @@ export function modalAttPet() {
     const inputAvatar = document.createElement("input");
     const btnRegister = document.createElement("button");
     const form = document.createElement("form");
+    const inputName = document.createElement("input");
 
     modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
     modal.classList.add("modalAttPet");
@@ -70,9 +74,11 @@ export function modalAttPet() {
     title.classList.add("font-size-1", "color-brand-1");
     form.classList.add("flex", "flex-col");
     inputAvatar.id = "avatar_url";
+    inputName.id = "name";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
+    inputName.placeholder = "Nome";
     btnRegister.innerText = "Atualizar";
     inputAvatar.placeholder = "Avatar";
     btnClose.src = "../../assets/img/Vector.svg";
@@ -84,7 +90,7 @@ export function modalAttPet() {
 
     })
 
-    form.append(inputAvatar, btnRegister);
+    form.append(inputName, inputAvatar, btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);

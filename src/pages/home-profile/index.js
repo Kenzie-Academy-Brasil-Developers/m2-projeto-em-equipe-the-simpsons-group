@@ -1,6 +1,6 @@
 
 import { getProfile } from "../../scripts/apiUser.js";
-import { getMyPets } from "../../scripts/apiPets.js";
+import { getMyPets, patchUpdatePet, postCreatePet } from "../../scripts/apiPets.js";
 import {modalRefreshProfile, modalAttPet, modalRegisterPet, modalDeleteProfile} from "../../scripts/modal.js"
 
 
@@ -25,8 +25,35 @@ function attPet(id) {
 
         })
 
-        console.log(body);
-        //document.location.reload(true);
+        patchUpdatePet(id,body);
+
+    })
+
+}
+
+function createPet() {
+
+    const form = document.querySelector("form");
+    const elements = [...form.elements];
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const body = {};
+
+        elements.forEach((elem) => {
+
+            if(elem.value !== "" && elem.tagName == "INPUT") {
+
+                body[elem.id] = elem.value;
+
+            }
+
+        })
+
+        console.log(body)
+        postCreatePet(body);
 
     })
 
@@ -62,10 +89,11 @@ async function renderCardsPets(){
         spanAvailable.classList.add("font-size-4", "color-black-1");
         btnAtt.classList.add("button-default-brand-1");
 
-        btnAtt.addEventListener("click",() => {
+        btnAtt.addEventListener("click",(e) => {
 
+            e.preventDefault();
             modalAttPet();
-            attPet();
+            attPet(element.id);
 
         })
 
@@ -107,6 +135,7 @@ const btnRegister = document.getElementById("btnRegisterNewPet");
 btnRegister.addEventListener("click",() => {
 
     modalRegisterPet();
+    createPet();
 
 })
 
