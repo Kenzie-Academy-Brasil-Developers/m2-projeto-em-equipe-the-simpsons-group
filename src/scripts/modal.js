@@ -1,3 +1,5 @@
+import { refreshUsers, deleteUsers } from "./apiUser.js";
+
 export function modalRegisterPet() {
 
     const body = document.querySelector("body");
@@ -9,7 +11,8 @@ export function modalRegisterPet() {
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
-    const inputSpecies = document.createElement("input");
+    const selectSpecies = document.createElement("select");
+    const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const btnRegister = document.createElement("button");
     const form = document.createElement("form");
@@ -22,16 +25,27 @@ export function modalRegisterPet() {
     form.classList.add("flex", "flex-col");
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
-    inputSpecies.id = "species";
+    inputBread.id = "bread";
+    selectSpecies.id = "species";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
     btnRegister.innerText = "Cadastrar";
     inputAvatar.placeholder = "Avatar";
+    inputBread.placeholder = "Raça";
     inputName.placeholder = "Nome";
-    inputSpecies.placeholder = "Raça";
+    selectSpecies.placeholder = "Espécie";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Cadastrar Pet";
+
+    selectSpecies.insertAdjacentHTML("beforeend",`
+    <option value="">Espécie</option>
+    <option value="Cachorro">Cachorro</option>
+    <option value="Gatos">Gatos</option>
+    <option value="Aves">Aves</option>
+    <option value="Repteis">Répteis</option>
+    <option value="Outros">Outros</option>
+    `)
 
     btnClose.addEventListener("click",() => {
 
@@ -39,7 +53,7 @@ export function modalRegisterPet() {
 
     })
 
-    form.append(inputName, inputSpecies, inputAvatar, btnRegister);
+    form.append(inputName, selectSpecies, inputAvatar, inputBread,btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -49,8 +63,7 @@ export function modalRegisterPet() {
 
 }
 
-export function modalAttPet() {
-
+export function modalAttPet() {    
     const body = document.querySelector("body");
 
     const modalWrapper = document.createElement("div");
@@ -59,9 +72,13 @@ export function modalAttPet() {
     const modalBody = document.createElement("div");
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
+    const inputName = document.createElement("input");
+    const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
+    const selectSpecies = document.createElement("select");
     const btnRegister = document.createElement("button");
     const form = document.createElement("form");
+    
 
     modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
     modal.classList.add("modalAttPet");
@@ -70,13 +87,28 @@ export function modalAttPet() {
     title.classList.add("font-size-1", "color-brand-1");
     form.classList.add("flex", "flex-col");
     inputAvatar.id = "avatar_url";
+    inputName.id = "name";
+    inputBread.id = "bread";
+    selectSpecies.id = "species";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
-    btnRegister.innerText = "Atualizar";
+    inputName.placeholder = "Nome";    
     inputAvatar.placeholder = "Avatar";
+    inputBread.placeholder = "Raça";
+    btnRegister.innerText = "Atualizar";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Atualizar Pet";
+    
+
+    selectSpecies.insertAdjacentHTML("beforeend",`
+    <option value="">Espécie</option>
+    <option value="Cachorro">Cachorro</option>
+    <option value="Gatos">Gatos</option>
+    <option value="Aves">Aves</option>
+    <option value="Repteis">Répteis</option>
+    <option value="Outros">Outros</option>
+    `)
 
     btnClose.addEventListener("click",() => {
 
@@ -84,7 +116,7 @@ export function modalAttPet() {
 
     })
 
-    form.append(inputAvatar, btnRegister);
+    form.append(inputName, selectSpecies,inputBread,inputAvatar, btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -105,7 +137,6 @@ export function modalRefreshProfile() {
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
-    const inputEmail = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const btnRefresh = document.createElement("button");
     const form = document.createElement("form");
@@ -118,16 +149,34 @@ export function modalRefreshProfile() {
     form.classList.add("flex", "flex-col");
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
-    inputEmail.id = "species";
     btnRefresh.classList.add("button-outline-brand-1");
-    btnRefresh.type = "submit";
+    btnRefresh.type = "submit";    
 
     btnRefresh.innerText = "Atualizar";    
     inputName.placeholder = "Nome";
-    inputEmail.placeholder = "Email";
     inputAvatar.placeholder = "Avatar";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Atualizar Perfil";
+
+    btnRefresh.addEventListener("click", async(e)=>{
+        const elements = [...form.elements];
+
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((elem)=>{
+            
+            if (elem.tagName == "INPUT"){
+                body[elem.id] = elem.value;
+                
+            }             
+
+        })
+        
+        await refreshUsers(body)
+        window.location.reload()
+    })
 
     btnClose.addEventListener("click",() => {
 
@@ -135,7 +184,7 @@ export function modalRefreshProfile() {
 
     })
 
-    form.append(inputName, inputEmail, inputAvatar, btnRefresh);
+    form.append(inputName,inputAvatar, btnRefresh);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -174,6 +223,18 @@ export function modalDeleteProfile() {
     title.innerText = "Deseja mesmo deletar sua conta?";
 
     btnClose.addEventListener("click",() => {
+
+        modalWrapper.remove();
+
+    })
+
+    btnDelete.addEventListener("click", async ()=>{
+        await deleteUsers()
+        localStorage.removeItem("@kenziePet:Token")
+        window.location.replace("../home/index.html")
+    })
+
+    btnCancel.addEventListener("click",() => {
 
         modalWrapper.remove();
 

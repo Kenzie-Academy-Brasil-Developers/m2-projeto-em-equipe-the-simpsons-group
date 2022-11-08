@@ -76,6 +76,14 @@
     border-radius: 20px;
 }
 
+.modalBody > form > select {
+    border: 1px solid var(--color-brand-1);
+    width: 240px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
 .modalBody > form > button {
     width: 240px;
     height: 30px;
