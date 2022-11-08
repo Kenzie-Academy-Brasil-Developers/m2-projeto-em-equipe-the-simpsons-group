@@ -32,7 +32,6 @@ main, #input-email, #input-password,  #btn-login{
 .cont-login{
     position: relative;
     border: 5px solid var(--color-black-1);
-    position: relative;
     padding: 3rem;
     background: linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%);
 }
@@ -58,6 +57,7 @@ main, #input-email, #input-password,  #btn-login{
 /*Header*/
 
 header{
+    z-index: 1;
     width: 100%;
     padding: 0rem 1rem;
     height: 5rem;

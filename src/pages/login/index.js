@@ -182,6 +182,7 @@ function pageWindow(){
     let contLogin = document.querySelector(".cont-login")
     let imgCat = document.querySelector(".img-cat")
     let body = document.querySelector("body")
+   
 
     document.addEventListener("DOMContentLoaded", ()=>{
         if(window.screen.width >= 800){
@@ -219,6 +220,16 @@ function pageWindow(){
             contLogin.style.borderRadius="0rem"
             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
         }
+
+        if(window.screen.width < 390 && window.screen.height < 800){
+            body.style.height="100%"
+            body.style.position="sticky"
+            screenViewPort.style.margin="2rem 0rem 6rem 0rem"
+        }else{
+            body.style.height="100vh"
+            body.style.position="relative"
+            screenViewPort.style.margin="0rem"
+        }
     })
     
     window.addEventListener("resize", ()=>{
@@ -255,6 +266,16 @@ function pageWindow(){
             contLogin.style.padding="1rem"
             contLogin.style.borderRadius="0rem"
             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+        }
+
+        if(window.screen.width < 390 && window.screen.height < 800){
+            body.style.height="100%"
+            body.style.position="sticky"
+            screenViewPort.style.margin="2rem 0rem 6rem 0rem"
+        }else{
+            body.style.height="100vh"
+            body.style.position="relative"
+            screenViewPort.style.margin="0rem"
         }
     })
 }
