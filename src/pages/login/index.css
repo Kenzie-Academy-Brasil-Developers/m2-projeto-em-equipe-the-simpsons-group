@@ -6,6 +6,9 @@ body{
     height: 100vh;
     position: relative;
     overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 main, .screen-viewport{
