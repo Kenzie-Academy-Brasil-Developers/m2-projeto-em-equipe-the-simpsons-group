@@ -97,3 +97,31 @@ export async function postCreatePet (body) {
     }
 
 }
+
+export async function deletePet (id) {
+
+    const token = localStorage.getItem("@kenziePet:Token")
+    try {
+
+        const request = await fetch(`${baseURL}/pets/` + id, {
+
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if(request.ok){
+
+            document.location.reload(true);
+
+        }
+
+    }catch(err) {
+
+        console.log(err);
+
+    }
+
+}

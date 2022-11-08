@@ -1,4 +1,5 @@
 import { refreshUsers, deleteUsers } from "./apiUser.js";
+import { deletePet } from "../scripts/apiPets.js";
 
 export function modalRegisterPet() {
 
@@ -26,8 +27,12 @@ export function modalRegisterPet() {
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
     inputBread.id = "bread";
+    inputAvatar.required = "true";
+    inputBread.required = "true";
+    inputName.required = "true";
+    selectSpecies.required = "true";
     selectSpecies.id = "species";
-    btnRegister.classList.add("button-outline-brand-1");
+    btnRegister.classList.add("button-default-brand-1");
     btnRegister.type = "submit";
 
     btnRegister.innerText = "Cadastrar";
@@ -63,42 +68,54 @@ export function modalRegisterPet() {
 
 }
 
-export function modalAttPet() {    
+export function modalAttPet(id) {    
     const body = document.querySelector("body");
 
     const modalWrapper = document.createElement("div");
+    const boxDelete = document.createElement("div");
     const modal = document.createElement("div");
     const modalHeader = document.createElement("div");
     const modalBody = document.createElement("div");
     const title = document.createElement("p");
+    const pDelete = document.createElement("p");
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
     const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const selectSpecies = document.createElement("select");
     const btnRegister = document.createElement("button");
+    const btnDelete = document.createElement("button");
     const form = document.createElement("form");
     
-
+    boxDelete.classList.add("boxDelete", "flex", "flex-col", "items-center", "gap-small");
     modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
     modal.classList.add("modalAttPet");
     modalHeader.classList.add("modalHeader", "flex", "justify-end", "items-center");
     modalBody.classList.add("modalBody", "flex", "justify-center", "items-center", "flex-col");
     title.classList.add("font-size-1", "color-brand-1");
+    pDelete.classList.add("color-brand-1");
     form.classList.add("flex", "flex-col");
     inputAvatar.id = "avatar_url";
     inputName.id = "name";
     inputBread.id = "bread";
     selectSpecies.id = "species";
-    btnRegister.classList.add("button-outline-brand-1");
+    btnRegister.classList.add("button-default-brand-1");
+    btnDelete.classList.add("button-outline-red-1");
     btnRegister.type = "submit";
+
+    inputAvatar.required = "true";
+    inputBread.required = "true";
+    inputName.required = "true";
+    selectSpecies.required = "true";
 
     inputName.placeholder = "Nome";    
     inputAvatar.placeholder = "Avatar";
     inputBread.placeholder = "Raça";
     btnRegister.innerText = "Atualizar";
+    btnDelete.innerText = "Excluir";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Atualizar Pet";
+    pDelete.innerText = "ou"
     
 
     selectSpecies.insertAdjacentHTML("beforeend",`
@@ -116,8 +133,16 @@ export function modalAttPet() {
 
     })
 
+    btnDelete.addEventListener("click",() => {
+
+        console.log(id)
+        deletePet(id);
+
+    })
+
+    boxDelete.append(pDelete, btnDelete);
     form.append(inputName, selectSpecies,inputBread,inputAvatar, btnRegister);
-    modalBody.append(title, form);
+    modalBody.append(title, form, boxDelete);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
     modalWrapper.append(modal);
@@ -149,7 +174,7 @@ export function modalRefreshProfile() {
     form.classList.add("flex", "flex-col");
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
-    btnRefresh.classList.add("button-outline-brand-1");
+    btnRefresh.classList.add("button-default-brand-1");
     btnRefresh.type = "submit";    
 
     btnRefresh.innerText = "Atualizar";    
