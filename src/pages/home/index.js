@@ -26,18 +26,22 @@ export async function renderListAllPets (){
                     img.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
                 })
 
+            const boxInfos = document.createElement("div")
+            li.appendChild(boxInfos)
+            boxInfos.classList = "flex flex-col items-center"
+
             const h3 = document.createElement("h3")
-            li.appendChild(h3)
+            boxInfos.appendChild(h3)
             h3.classList = "font-size-2 color-brand-1"
             h3.innerText = element.name
 
             const span = document.createElement("span")
-            li.appendChild(span)
+            boxInfos.appendChild(span)
             span.classList = "font-size-3 color-brand-1"
             span.innerText = element.species
 
             const span2 = document.createElement("span")
-            li.appendChild(span2)
+            boxInfos.appendChild(span2)
             span2.classList = "font-size-4 color-white-1 CardTagAdoption"
             
             if(element.available_for_adoption == true){
