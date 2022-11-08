@@ -198,15 +198,201 @@ async function registerApi(data) {
     }
 }
 
+function pageWindow(){
+
+    let main = document.querySelector("main")
+    let body = document.querySelector("body")
+    let form = document.querySelector("form")
+    let contRegister = document.querySelector(".cont-register")
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        if(window.screen.width >= 1400){
+
+            let imgSpying = document.querySelector(".cat-spying")
+            let imgTalking = document.querySelector(".cont-pets-talking")
+            let contChangeImg = document.querySelector(".cont-change-img")
+
+            if(imgSpying !== null || imgTalking !== null){
+               main.removeChild(imgSpying)
+               main.removeChild(imgTalking)
+            }
+
+            if(contChangeImg !== null){
+                form.removeChild(contChangeImg)
+             }
+
+            let div = document.createElement("div")
+            div.classList.add("cont-pets-talking")
+
+            let div2 = document.createElement("div")
+            div2.classList.add("cont-change-img")
+
+            let img3 = document.createElement("img")
+            img3.classList.add("img-cat")
+            img3.setAttribute("alt", "gato")
+            img3.setAttribute("id", "change-img")
+            img3.setAttribute("src", "https://i.ibb.co/bJjYV8s/Passa-A-senha-2.png")
+
+            div2.append(img3)
+
+            contRegister.style.height="45rem"
+            contRegister.style.width="30rem"
+
+            let img1 = document.createElement("img")
+            let img2 = document.createElement("img")
+
+            img1.classList.add("cat-spying")
+            img2.classList.add("img-pets-talking")
+
+            img1.setAttribute("alt", "gato espiando")
+            img2.setAttribute("alt", "pets conversando")
+
+            img1.setAttribute("src", "https://i.ibb.co/p12YxdS/gato-1.png")
+            img2.setAttribute("src", "https://i.ibb.co/KGN52Xr/Design-sem-nome.png")
+
+            div.append(img2)
+
+            main.append(img1, div)
+            form.append(div2)
+
+            catsAnimations()
+            changeImg()
+
+            contRegister.style.padding="3rem"
+            contRegister.style.borderRadius="3rem"
+            body.style.backgroundImage="none"
+            
+
+        }else{
+            let imgSpying = document.querySelector(".cat-spying")
+            let imgTalking = document.querySelector(".cont-pets-talking")
+            let contChangeImg = document.querySelector(".cont-change-img")
+
+            if(imgSpying !== null || imgTalking !== null){
+                main.removeChild(imgSpying)
+                main.removeChild(imgTalking)
+             }
+
+             if(contChangeImg !== null){
+                form.removeChild(contChangeImg)
+             }
+
+            contRegister.style.maxHeight="45rem"
+            contRegister.style.maxWidth="30rem"
+
+            
+             contRegister.style.padding="1rem"
+             contRegister.style.borderRadius="0rem"
+             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+        }
+
+        if(window.screen.height <= 750){
+            body.style.height=`${window.screen.height+100}px`
+            body.style.overflow="auto"
+        }else{
+            body.style.height="100vh"
+            body.style.overflow="hidden"
+        }
+      
+    })
+    
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 1400){
+            let imgSpying = document.querySelector(".cat-spying")
+            let imgTalking = document.querySelector(".cont-pets-talking")
+            let contChangeImg = document.querySelector(".cont-change-img")
+
+            if(imgSpying !== null || imgTalking !== null){
+               main.removeChild(imgSpying)
+               main.removeChild(imgTalking)
+            }
+
+            if(contChangeImg !== null){
+                form.removeChild(contChangeImg)
+             }
+
+            let div = document.createElement("div")
+            div.classList.add("cont-pets-talking")
+
+            let div2 = document.createElement("div")
+            div2.classList.add("cont-change-img")
+
+            let img3 = document.createElement("img")
+            img3.classList.add("img-cat")
+            img3.setAttribute("alt", "gato")
+            img3.setAttribute("id", "change-img")
+            img3.setAttribute("src", "https://i.ibb.co/bJjYV8s/Passa-A-senha-2.png")
+
+            div2.append(img3)
+
+            contRegister.style.height="45rem"
+            contRegister.style.width="30rem"
+
+            let img1 = document.createElement("img")
+            let img2 = document.createElement("img")
+
+            img1.classList.add("cat-spying")
+            img2.classList.add("img-pets-talking")
+
+            img1.setAttribute("alt", "gato espiando")
+            img2.setAttribute("alt", "pets conversando")
+
+            img1.setAttribute("src", "https://i.ibb.co/p12YxdS/gato-1.png")
+            img2.setAttribute("src", "https://i.ibb.co/KGN52Xr/Design-sem-nome.png")
+
+            div.append(img2)
+
+            main.append(img1, div)
+            form.append(div2)
+
+            catsAnimations()
+            changeImg()
+
+            contRegister.style.padding="3rem"
+            contRegister.style.borderRadius="3rem"
+            body.style.backgroundImage="none"
+           
+        }else{
+            let imgSpying = document.querySelector(".cat-spying")
+            let imgTalking = document.querySelector(".cont-pets-talking")
+            let contChangeImg = document.querySelector(".cont-change-img")
+
+            if(imgSpying !== null || imgTalking !== null){
+               main.removeChild(imgSpying)
+               main.removeChild(imgTalking)
+            }
+
+
+            if(contChangeImg !== null){
+                form.removeChild(contChangeImg)
+             }
+
+             contRegister.style.maxHeight="45rem"
+             contRegister.style.maxWidth="30rem" 
+
+             contRegister.style.padding="1rem"
+             contRegister.style.borderRadius="0rem"
+             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+        }
+    })
+
+    if(window.screen.height <= 750){
+        body.style.height=`${window.screen.height+100}px`
+        body.style.overflow="auto"
+    }else{
+        body.style.height="100vh"
+        body.style.overflow="hidden"
+    }
+}
+
 
 
 //Chama todas as funções.
 function callFunctions(){
     page()
     menu()
-    changeImg()
-    catsAnimations()
     register()
+    pageWindow()
 }
 
 callFunctions()
