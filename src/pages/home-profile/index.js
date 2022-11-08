@@ -1,8 +1,63 @@
 
 import { getProfile } from "../../scripts/apiUser.js";
-import { getMyPets } from "../../scripts/apiPets.js";
+import { getMyPets, patchUpdatePet, postCreatePet } from "../../scripts/apiPets.js";
 import {modalRefreshProfile, modalAttPet, modalRegisterPet, modalDeleteProfile} from "../../scripts/modal.js"
 
+
+function attPet(id) {
+
+    const form = document.querySelector("form");
+    const elements = [...form.elements];
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const body = {};
+
+        elements.forEach((elem) => {
+
+            if(elem.value !== "" && elem.tagName == "INPUT") {
+
+                body[elem.id] = elem.value;
+
+            }
+
+        })
+
+        patchUpdatePet(id,body);
+
+    })
+
+}
+
+function createPet() {
+
+    const form = document.querySelector("form");
+    const elements = [...form.elements];
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const body = {};
+
+        elements.forEach((elem) => {
+
+            if(elem.value !== "" && elem.tagName == "INPUT") {
+
+                body[elem.id] = elem.value;
+
+            }
+
+        })
+
+        console.log(body)
+        postCreatePet(body);
+
+    })
+
+}
 
 async function renderCardsPets(){
 
@@ -34,9 +89,11 @@ async function renderCardsPets(){
         spanAvailable.classList.add("font-size-4", "color-black-1");
         btnAtt.classList.add("button-default-brand-1");
 
-        btnAtt.addEventListener("click",() => {
+        btnAtt.addEventListener("click",(e) => {
 
+            e.preventDefault();
             modalAttPet();
+            attPet(element.id);
 
         })
 
@@ -78,15 +135,15 @@ const btnRegister = document.getElementById("btnRegisterNewPet");
 btnRegister.addEventListener("click",() => {
 
     modalRegisterPet();
+    createPet();
 
 })
-
 
 renderCardsPets()
 
 
-
 export async function renderInfoProfile(){
+
     const infoProfile = await getProfile()
     const sectionUserProfile = document.querySelector(".sectionUserProfile")
 
@@ -127,30 +184,31 @@ export async function renderInfoProfile(){
 
 renderInfoProfile()
 
+const btnBurguer = document.querySelector("#btn-burguer")
+const headerBoxRight = document.querySelector(".headerBoxRight")
+const btnHome = document.querySelector("#btn-home")
+const btnLogout = document.querySelector("#btn-logout")
+
+btnBurguer.addEventListener("click",(e)=>{
+
+    if (headerBoxRight.classList.contains("show")){
+        headerBoxRight.classList = "headerBoxRight justify-around items-center"
+    }else{
+        headerBoxRight.classList = "headerBoxRight justify-around items-center show"
+    }
+    
+})
+
+btnLogout.addEventListener("click",(e)=>{
+    window.location.replace("../home/index.html");
+    localStorage.removeItem("@kenziePet:Token");
+})
+
+btnHome.addEventListener("click",(e)=>{
+    window.location.replace("../home-user/index.html");
+})
 
 
-    const btnBurguer = document.querySelector("#btn-burguer")
-    const headerBoxRight = document.querySelector(".headerBoxRight")
-    const btnHome = document.querySelector("#btn-home")
-    const btnLogout = document.querySelector("#btn-logout")
 
-    btnBurguer.addEventListener("click",(e)=>{
-
-        if (headerBoxRight.classList.contains("show")){
-            headerBoxRight.classList = "headerBoxRight justify-around items-center"
-        }else{
-            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
-        }
-        
-    })
-
-    btnLogout.addEventListener("click",(e)=>{
-        window.location.replace("../home/index.html");
-        localStorage.removeItem("@kenziePet:Token");
-    })
-
-    btnHome.addEventListener("click",(e)=>{
-        window.location.replace("../home-user/index.html");
-    })
 
 
