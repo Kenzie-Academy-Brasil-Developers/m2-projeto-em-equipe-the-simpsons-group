@@ -35,3 +35,29 @@ export async function apiRequestAllPets (){
     const responseJson = await response.json()
    return responseJson
 }
+
+export async function patchUpdatePet (id,body) {
+    const token = localStorage.getItem("@kenziePet:Token")
+    try {
+
+        const request = await fetch("https://m2-api-adot-pet.herokuapp.com/pets/" + id, {
+
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        });
+
+        const response = await request.json();
+
+        return response;
+
+    }catch(err) {
+
+        console.log(err);
+
+    }
+
+}
