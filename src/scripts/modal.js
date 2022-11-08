@@ -41,9 +41,9 @@ export function modalRegisterPet() {
     selectSpecies.insertAdjacentHTML("beforeend",`
     <option value="">Espécie</option>
     <option value="Cachorro">Cachorro</option>
-    <option value="Gatos">Gatos</option>
-    <option value="Aves">Aves</option>
-    <option value="Repteis">Répteis</option>
+    <option value="Gato">Gato</option>
+    <option value="Aves">Ave</option>
+    <option value="Repteis">Réptil</option>
     <option value="Outros">Outros</option>
     `)
 
@@ -104,9 +104,9 @@ export function modalAttPet() {
     selectSpecies.insertAdjacentHTML("beforeend",`
     <option value="">Espécie</option>
     <option value="Cachorro">Cachorro</option>
-    <option value="Gatos">Gatos</option>
-    <option value="Aves">Aves</option>
-    <option value="Repteis">Répteis</option>
+    <option value="Gato">Gato</option>
+    <option value="Aves">Ave</option>
+    <option value="Repteis">Réptil</option>
     <option value="Outros">Outros</option>
     `)
 
