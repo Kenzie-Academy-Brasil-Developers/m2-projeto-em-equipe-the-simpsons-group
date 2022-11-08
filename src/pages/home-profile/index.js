@@ -1,15 +1,16 @@
 
 import { getProfile } from "../../scripts/apiUser.js";
 import { getMyPets } from "../../scripts/apiPets.js";
-import {createModal} from "../../scripts/modal.js"
+import {modalRefreshProfile, modalAttPet, modalRegisterPet, modalDeleteProfile} from "../../scripts/modal.js"
 
 
+async function renderCardsPets(){
 
-async function renderCardsPets(database){
-
+    const pets =  await getMyPets();
     const ul = document.getElementById("ulCardsPets");
+    ul.innerHTML = ""
 
-    database.forEach(element => {
+    pets.forEach(element => {
         const li = document.createElement("li");
         const imgPets = document.createElement("img");
         const divDescription = document.createElement("div");
@@ -33,9 +34,15 @@ async function renderCardsPets(database){
         spanAvailable.classList.add("font-size-4", "color-black-1");
         btnAtt.classList.add("button-default-brand-1");
 
-        pName.innerText = "Nome:";
-        pSpecie.innerText = "Espécies:";
-        pAvailable.innerText = "Adotável:";
+        btnAtt.addEventListener("click",() => {
+
+            modalAttPet();
+
+        })
+
+        pName.innerText = "Nome: ";
+        pSpecie.innerText = "Espécies: ";
+        pAvailable.innerText = "Adotável: ";
         btnAtt.innerText = "Atualizar";
         if(element.available_for_adoption === true){
 
@@ -46,7 +53,12 @@ async function renderCardsPets(database){
             spanAvailable.innerText = "Não";
 
         }
-        imgPets.src = "avatar_url";
+        imgPets.src = element.avatar_url;
+            
+            imgPets.addEventListener("error",(e)=>{
+                imgPets.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
+            })
+
         spanName.innerText = element.name;
         spanSpecie.innerText = element.species;
 
@@ -61,15 +73,21 @@ async function renderCardsPets(database){
 
 }
 
-const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
-renderCardsPets(pets)
+const btnRegister = document.getElementById("btnRegisterNewPet");
 
-}
+btnRegister.addEventListener("click",() => {
+
+    modalRegisterPet();
+
+})
+
+
 renderCardsPets()
 
 
-async function renderInfoProfile(){
-    const infoProfile = await getProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4")
+
+export async function renderInfoProfile(){
+    const infoProfile = await getProfile()
     const sectionUserProfile = document.querySelector(".sectionUserProfile")
 
     sectionUserProfile.insertAdjacentHTML("beforeend",`
@@ -77,29 +95,62 @@ async function renderInfoProfile(){
         <img src=${infoProfile.avatar_url} alt="" class="imgProfile margin-bottom-small">
         <div class="boxText flex flex-col gap-small items-center">
             <h2 class="textTitle color-brand-1 font-size-2">Dados pessoais</h2>
-            <div class="textCont flex flex-col margin-bottom-small">
+            <div class="textCont flex flex-col margin-bottom-small gap-small">
                 <p class="textName font-weight-3"><strong class="color-brand-1">Nome: </strong>${infoProfile.name}</p>
                 <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
             </div>
             <div class="TextBtns flex gap-small">
-                <button class="refreshBtn">Atualizar informações</button>
-                <button class="deleteBtn">Deletar conta</button>
+                <button class="refreshBtn button-default-brand-1">Atualizar informações</button>
+                <button class="deleteBtn button-outline-red-1">Deletar conta</button>
             </div>
         </div>
     </div>`)
 
     const refreshBtn = document.querySelector(".refreshBtn")    
     const deleteBtn = document.querySelector(".deleteBtn")
+    const imgProfile = document.querySelector(".imgProfile")
+
+    imgProfile.addEventListener("error",(e)=>{
+        imgProfile.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
+        imgProfile.style.background = "gray"
+    })
 
     refreshBtn.addEventListener("click",()=>{
-        createModal()
+        modalRefreshProfile()
     })
 
     deleteBtn.addEventListener("click",()=>{
-        createModal()
+        modalDeleteProfile()
     })
     
 }
 
 renderInfoProfile()
+
+
+
+    const btnBurguer = document.querySelector("#btn-burguer")
+    const headerBoxRight = document.querySelector(".headerBoxRight")
+    const btnHome = document.querySelector("#btn-home")
+    const btnLogout = document.querySelector("#btn-logout")
+
+    btnBurguer.addEventListener("click",(e)=>{
+
+        if (headerBoxRight.classList.contains("show")){
+            headerBoxRight.classList = "headerBoxRight justify-around items-center"
+        }else{
+            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
+        }
+        
+    })
+
+    btnLogout.addEventListener("click",(e)=>{
+        window.location.replace("../home/index.html");
+        localStorage.removeItem("@kenziePet:Token");
+    })
+
+    btnHome.addEventListener("click",(e)=>{
+        window.location.replace("../home-user/index.html");
+    })
+
 

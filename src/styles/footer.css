@@ -1,0 +1,7 @@
+footer{
+margin-top: 20px;
+width: 100%;
+min-height: 48px;
+border-top: 1px solid var(--color-grey-2);
+background-color: var(--color-grey-1);
+}

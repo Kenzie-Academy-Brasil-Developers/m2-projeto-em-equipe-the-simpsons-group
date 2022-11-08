@@ -1,83 +1,38 @@
+.button-login-register,
+.button-default-brand-1, .button-default-green-1, 
+.button-outline-brand-1, .button-outline-red-1{
+    border-radius: 1rem;
+}
+
+.button-default-brand-1, .button-default-green-1, 
+.button-outline-brand-1, .button-outline-red-1{
+    padding: 0.5rem 2rem;
+}
+
+.button-login-register{
+    border: 2px solid var(--color-black-1);
+    padding: 1rem;
+}
+
 .button-default-brand-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 24px;
-    gap: 10px;
-
     background: var(--color-brand-1);
-    border-radius: 16px;
-
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
     color: var(--color-white-1);
 }
 
+
 .button-default-green-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 24px;
-    gap: 10px;
-
     background: var(--color-green-1);
-    border-radius: 16px;
-
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
     color: var(--color-white-1);
 }
 
 .button-outline-brand-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 24px;
-    gap: 10px;
-    
     background: var(--color-white-1);
-
-    border: 1px solid var(--color-brand-1);
-    border-radius: 16px;
-
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-
+    border: 1px solid var(--color-brand-1);;
     color: var(--color-brand-1);
-
 }
 
 .button-outline-red-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 24px;
-    gap: 10px;
-    
     background: var(--color-white-1);
-
     border: 1px solid var(--color-red-1);
-    border-radius: 16px;
-
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-
     color: var(--color-red-1);
-
 }
