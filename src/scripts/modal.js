@@ -1,3 +1,5 @@
+import { refreshUsers, deleteUsers } from "./apiUser.js";
+
 export function modalRegisterPet() {
 
     const body = document.querySelector("body");
@@ -105,7 +107,6 @@ export function modalRefreshProfile() {
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
-    const inputEmail = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const btnRefresh = document.createElement("button");
     const form = document.createElement("form");
@@ -118,16 +119,34 @@ export function modalRefreshProfile() {
     form.classList.add("flex", "flex-col");
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
-    inputEmail.id = "species";
     btnRefresh.classList.add("button-outline-brand-1");
-    btnRefresh.type = "submit";
+    btnRefresh.type = "submit";    
 
     btnRefresh.innerText = "Atualizar";    
     inputName.placeholder = "Nome";
-    inputEmail.placeholder = "Email";
     inputAvatar.placeholder = "Avatar";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Atualizar Perfil";
+
+    btnRefresh.addEventListener("click", async(e)=>{
+        const elements = [...form.elements];
+
+        e.preventDefault()
+
+        const body = {}
+
+        elements.forEach((elem)=>{
+            
+            if (elem.tagName == "INPUT"){
+                body[elem.id] = elem.value;
+                
+            }             
+
+        })
+        
+        await refreshUsers(body)
+        window.location.reload()
+    })
 
     btnClose.addEventListener("click",() => {
 
@@ -135,7 +154,7 @@ export function modalRefreshProfile() {
 
     })
 
-    form.append(inputName, inputEmail, inputAvatar, btnRefresh);
+    form.append(inputName,inputAvatar, btnRefresh);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -174,6 +193,18 @@ export function modalDeleteProfile() {
     title.innerText = "Deseja mesmo deletar sua conta?";
 
     btnClose.addEventListener("click",() => {
+
+        modalWrapper.remove();
+
+    })
+
+    btnDelete.addEventListener("click", async ()=>{
+        await deleteUsers()
+        localStorage.removeItem("@kenziePet:Token")
+        window.location.replace("../home/index.html")
+    })
+
+    btnCancel.addEventListener("click",() => {
 
         modalWrapper.remove();
 
