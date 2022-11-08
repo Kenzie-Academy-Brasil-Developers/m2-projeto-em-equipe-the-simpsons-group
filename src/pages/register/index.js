@@ -1,3 +1,5 @@
+import { toast } from "../../scripts/toastfy.js"
+
 //Add a informação home no localstroage.
 function page(){
     localStorage.setItem("page", "register")
@@ -162,10 +164,15 @@ function register(){
         let resp = await registerApi(data)
 
         if(resp.message){
-            console.log("Erro")
+            toast("fail", "Não foi possível cadastrar esse usuário")
+            
         }else{
-            console.log(resp)
-            console.log("Deu certo!!!")
+            setTimeout(() => {
+                window.location.replace("../login/index.html")
+                
+            }, 3500);
+            toast("sucess", "Usuário cadastrado com Sucesso!")
+            
         }
     })
 }

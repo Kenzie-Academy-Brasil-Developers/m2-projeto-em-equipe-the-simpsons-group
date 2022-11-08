@@ -1,3 +1,5 @@
+import {toast} from "./toastfy.js"
+
 export async function getMyPets () {
     const token = localStorage.getItem("@kenziePet:Token")
     try {
@@ -54,9 +56,14 @@ export async function patchUpdatePet (id,body) {
         });
 
         if(request.ok){
+            toast("sucess","Pet atualizado com sucesso")
+            setTimeout(() => {
+                document.location.reload(true);                
+            }, 3500);
 
-            document.location.reload(true);
-
+        }
+        else{
+            toast("fail","Não foi possível atualizar seu Pet")
         }
 
     }catch(err) {
@@ -85,9 +92,13 @@ export async function postCreatePet (body) {
         });
 
         if(request.ok){
-
-            document.location.reload(true);
-
+            toast("sucess","Pet criado com sucesso")
+            setTimeout(() => {
+                document.location.reload(true);                
+            }, 3500);
+        }
+        else{
+            toast("fail","Não foi possível atualizar seu Pet")
         }
 
     }catch(err) {

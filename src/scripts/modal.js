@@ -192,7 +192,7 @@ export function modalRefreshProfile() {
 
         elements.forEach((elem)=>{
             
-            if (elem.tagName == "INPUT"){
+            if (elem.value !="" && elem.tagName == "INPUT"){
                 body[elem.id] = elem.value;
                 
             }             
@@ -200,7 +200,9 @@ export function modalRefreshProfile() {
         })
         
         await refreshUsers(body)
-        window.location.reload()
+        setTimeout(() => {
+            window.location.reload()
+        }, 3500);
     })
 
     btnClose.addEventListener("click",() => {
@@ -255,8 +257,10 @@ export function modalDeleteProfile() {
 
     btnDelete.addEventListener("click", async ()=>{
         await deleteUsers()
+        setTimeout(() => {            
         localStorage.removeItem("@kenziePet:Token")
         window.location.replace("../home/index.html")
+        }, 3500);
     })
 
     btnCancel.addEventListener("click",() => {

@@ -1,5 +1,5 @@
+import { toast } from "./toastfy.js";
 const baseURL = "https://m2-api-adot-pet.herokuapp.com"
-
 
 export async function getProfile(){
     const token = localStorage.getItem("@kenziePet:Token")
@@ -30,6 +30,13 @@ export async function refreshUsers(body){
 
     try{
         const response = await request.json()
+
+        if(body.name || body.avatar_url){
+            toast("sucess","Perfil Atualizado com Sucesso!")
+        }
+        else{
+            toast("fail","Não foi possível atualizar seu perfil!")
+        }
         return response
     }catch{
         
@@ -48,6 +55,12 @@ export async function deleteUsers(){
 
     try{
         const response = await request.json()
+        if(request.ok){
+            toast("sucess","Perfil Deletado com Sucesso!")
+        }
+        else{
+            toast("fail","Não foi possível deletar seu perfil!")
+        }
         return response
     }catch{
         
