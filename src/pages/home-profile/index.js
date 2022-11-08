@@ -92,7 +92,7 @@ async function renderCardsPets(){
         btnAtt.addEventListener("click",(e) => {
 
             e.preventDefault();
-            modalAttPet();
+            modalAttPet(element.id);
             attPet(element.id);
 
         })
