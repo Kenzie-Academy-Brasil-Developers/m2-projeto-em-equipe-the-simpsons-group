@@ -141,7 +141,9 @@ btnRegister.addEventListener("click",() => {
 
 renderCardsPets()
 
-async function renderInfoProfile(){
+
+export async function renderInfoProfile(){
+
     const infoProfile = await getProfile()
     const sectionUserProfile = document.querySelector(".sectionUserProfile")
 
