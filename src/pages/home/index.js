@@ -38,7 +38,7 @@ export async function renderListAllPets (){
 
             const span2 = document.createElement("span")
             li.appendChild(span2)
-            span2.classList = "font-size-3 color-white-1 CardTagAdoption"
+            span2.classList = "font-size-4 color-white-1 CardTagAdoption"
             
             if(element.available_for_adoption == true){
                 span2.innerText = "Disponível para adoção!"
@@ -64,11 +64,20 @@ window.addEventListener("DOMContentLoaded",()=>{
     btnBurguer.addEventListener("click",(e)=>{
      
         if (headerBoxRight.classList.contains("show")){
-            headerBoxRight.classList = "headerBoxRight justify-around items-center"
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
         }else{
-            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
+            headerBoxRight.classList = "headerBoxRight justify-between items-center show"
+            btnBurguer.src = "../../assets/img/close.svg"
         }
         
+    })
+
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 500){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }
     })
 
     btnLogin.addEventListener("click",(e)=>{
