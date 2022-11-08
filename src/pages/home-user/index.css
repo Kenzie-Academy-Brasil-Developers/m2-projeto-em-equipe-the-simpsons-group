@@ -12,6 +12,7 @@ main{
     gap: 60px;
     overflow: auto;
     height: 290px;
+    padding: 1rem 0;
 }
 
     .card-pet{
