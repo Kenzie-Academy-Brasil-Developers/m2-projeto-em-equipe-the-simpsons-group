@@ -1,14 +1,17 @@
+import { menu } from "../../scripts/menu.js"
+
+function page(){
+    localStorage.setItem("page", "login")
+}
 
 function changeImg(){
     let img = document.querySelector("#change-img")
     
     img.addEventListener("mouseenter", ()=>{
-        console.log("teste")
         img.setAttribute("src", "https://i.ibb.co/7Cp9WyQ/Passa-A-senha-1.png")
     })
 
     img.addEventListener("mouseleave", ()=>{
-        console.log("teste")
         img.setAttribute("src", "https://i.ibb.co/RbwQyDv/Passa-A-senha-2.png")
     })
 }
@@ -65,8 +68,10 @@ function login(){
 }
 
 function callFunctions(){
+    page()
     changeImg()
     login()
+    menu()
 }
 
 callFunctions()

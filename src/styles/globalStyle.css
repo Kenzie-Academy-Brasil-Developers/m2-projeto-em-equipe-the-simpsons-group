@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+*{
+    font-family: 'Open Sans';
+}
+
 :root{
     --color-brand-1: #4E2096;
     --color-brand2: #B48CF2;
@@ -21,11 +26,15 @@
     --line-height: 150%
 }
 
-.body{
-    font-family: 'Open Sans', sans-serif;
-}
-.container{
+html{
     width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+    height: 100%;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
 }

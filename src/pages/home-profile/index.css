@@ -1,6 +1,17 @@
+body{
+    height: 170vh;    
+}
+
 .sectionMyPets {
+    position: relative;
     margin: 0 auto;
     max-width: 300px;
+}
+
+
+#ulCardsPets{
+    overflow-y: auto;
+    height:700px;
 }
 
 .imgPets {

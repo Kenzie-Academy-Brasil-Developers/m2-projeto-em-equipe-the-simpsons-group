@@ -1,5 +1,10 @@
+import { menu } from "../../scripts/menu.js"
 
+function page(){
+    localStorage.setItem("page", "home")
+}
 
+page()
 
 export async function apiRequestAllPets (){
     const response = await fetch("https://m2-api-adot-pet.herokuapp.com/pets", {
@@ -46,29 +51,6 @@ export async function renderListAllPets (){
 
 
 
-window.addEventListener("DOMContentLoaded",()=>{
-    renderListAllPets ()
 
-    const btnBurguer = document.querySelector("#btn-burguer")
-    const headerBoxRight = document.querySelector(".headerBoxRight")
-    const btnLogin = document.querySelector("#btn-login")
-    const btnRegister = document.querySelector("#btn-register")
-
-    btnBurguer.addEventListener("click",(e)=>{
-     
-        if (headerBoxRight.classList.contains("show")){
-            headerBoxRight.classList = "headerBoxRight justify-around items-center"
-        }else{
-            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
-        }
-        
-    })
-
-    btnLogin.addEventListener("click",(e)=>{
-        window.location.replace("../login/index.html")
-    })
-
-    btnRegister.addEventListener("click",(e)=>{
-        window.location.replace("../register/index.html")
-    })
-})
+renderListAllPets ()
+menu()

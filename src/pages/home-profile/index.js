@@ -3,6 +3,14 @@ import { getProfile } from "../../scripts/apiUser.js";
 import { getMyPets } from "../../scripts/apiPets.js";
 import {createModal, modalAttPet, modalRegisterPet} from "../../scripts/modal.js"
 
+import { menu } from "../../scripts/menu.js"
+
+function page(){
+    localStorage.setItem("page", "homeProfile")
+}
+ page()
+ menu()
+ 
 
 async function renderCardsPets(database){
 
@@ -115,30 +123,5 @@ async function renderInfoProfile(){
 
 renderInfoProfile()
 
-//window.addEventListener("DOMContentLoaded",()=>{
-
-    const btnBurguer = document.querySelector("#btn-burguer")
-    const headerBoxRight = document.querySelector(".headerBoxRight")
-    const btnHome = document.querySelector("#btn-home")
-    const btnLogout = document.querySelector("#btn-logout")
-
-    btnBurguer.addEventListener("click",(e)=>{
-
-        if (headerBoxRight.classList.contains("show")){
-            headerBoxRight.classList = "headerBoxRight justify-around items-center"
-        }else{
-            headerBoxRight.classList = "headerBoxRight justify-around items-center show"
-        }
-        
-    })
-
-    btnLogout.addEventListener("click",(e)=>{
-        window.location.replace("../../index.html");
-        localStorage.removeItem("@kenziePet:Token");
-    })
-
-    btnHome.addEventListener("click",(e)=>{
-        window.location.replace("../home-user/index.html");
-    })
-//})
+// btnBurguer
 

@@ -1,4 +1,11 @@
+import { menu } from "../../scripts/menu.js"
 
+function page(){
+    localStorage.setItem("page", "homeUser")
+}
+
+page()
+menu()
 
 export async function apiRequestAllPets (){
     const response = await fetch("https://m2-api-adot-pet.herokuapp.com/pets", {
@@ -69,34 +76,12 @@ window.addEventListener("DOMContentLoaded",()=>{
     
 
     if(localStorage.getItem("@kenziePet:Token")){
-        renderListAllPetsForAdoption()
 
-        const btnBurguer = document.querySelector("#btn-burguer")
-        const headerBoxRight = document.querySelector(".headerBoxRight")
-        const btnPerfil = document.querySelector("#btn-perfil")
-        const btnLogout = document.querySelector("#btn-logout")
-    
-        btnBurguer.addEventListener("click",(e)=>{
-         
-            if (headerBoxRight.classList.contains("show")){
-                headerBoxRight.classList = "headerBoxRight justify-around items-center"
-            }else{
-                headerBoxRight.classList = "headerBoxRight justify-around items-center show"
-            }
-            
-        })
-    
-        btnPerfil.addEventListener("click",(e)=>{
-            window.location.replace("../home-profile/index.html")
-        })
-    
-        btnLogout.addEventListener("click",(e)=>{
-            window.location.replace("../home/index.html")
-            localStorage.removeItem("@kenziePet:Token")
-        })
-    }else{
+         renderListAllPetsForAdoption()
+
+     }else{
         window.location.replace("../home/index.html")
     }
-
   
-})
+ })
+

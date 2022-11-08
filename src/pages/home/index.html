@@ -16,27 +16,25 @@
     <link rel="stylesheet" href="../../styles/inputs.css">
     <link rel="stylesheet" href="../../styles/spaces.css">
     <link rel="stylesheet" href="../../styles/toastfy.css">
-   
-
     <link rel="stylesheet" href="./index.css">
+    <script defer type="module" src="./index.js"></script>
     <title>Home</title>
 </head>
 <body class="flex flex-col justify-between ">
    
-    <header class=" flex items-center ">
-       
-        <div class="container flex items-center">
-        <div class="headerBoxLeft flex justify-between">
-            <h2 class="font-size-1 font-weight-1 color-brand-1">KenziePets</h2>
-            <img src="../../assets/img/menu-burguer.svg" alt="" id="btn-burguer">
-        </div>
-        <div class="headerBoxRight justify-between items-center">
-            <button class="button-outline-brand-1" id="btn-register">Register</button>
-            <button class="button-default-brand-1" id="btn-login">Login</button>
-        </div>
+    <header class="flex items-center justify-center">
+        <div class="cont-header-screen-viewport flex items-center justify-between">
+            <div class="flex items-center justify-center gap-medium flex-row">
+                <a href="./index.html">
+                    <h2 class="font-size-1 font-weight-1 color-brand-1">KenziePets</h2>
+                </a>
+            </div>
+            <div class="flex items-center justify-center gap-medium cont-header-buttons">
+                
+            </div>
        </div>
-
     </header>
+
 
     <main>
         <ul class="list-all-pets flex">
@@ -44,10 +42,8 @@
         </ul>
     </main>
 
-    <footer class="flex items-center justify-center ">
-        <span class="font-size-5 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
+    <footer class="flex items-center justify-center">
+        <span class="font-size-4 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
     </footer>
-
-    <script type="module" src="./index.js"></script>
 </body>
 </html>
