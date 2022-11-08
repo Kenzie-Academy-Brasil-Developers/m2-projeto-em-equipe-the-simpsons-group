@@ -6,6 +6,9 @@ body{
     height: 100vh;
     position: relative;
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 main, .screen-viewport{
@@ -22,9 +25,11 @@ main, #input-email, #input-password,
 }
 
 .cont-register{
+    margin-bottom: 3rem;
+    z-index: 1;
     border-radius: 3rem;
-    width: 30rem;
-    height: 45rem;
+    max-width: 30rem;
+    max-height: 45rem;
 }
 
 img{
@@ -48,6 +53,7 @@ img{
 }
 
 .cont-pets-talking{
+    z-index:0;
     width: 500px;
     position: absolute;
     right: 0px;
@@ -55,6 +61,7 @@ img{
 }
 
 .cat-spying{
+    z-index: 0;
     transform: rotate(50deg);
     left: -140px;
     position: absolute;
