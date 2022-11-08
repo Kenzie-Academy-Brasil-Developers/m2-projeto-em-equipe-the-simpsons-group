@@ -1,5 +1,6 @@
 import { refreshUsers, deleteUsers } from "./apiUser.js";
 import { deletePet } from "../scripts/apiPets.js";
+import {apiRequestAllAdoptions,apiRequestDeleteAdoption} from "./apiAdoptions.js"
 
 export function modalRegisterPet() {
 
@@ -133,10 +134,16 @@ export function modalAttPet(id) {
 
     })
 
-    btnDelete.addEventListener("click",() => {
+    btnDelete.addEventListener("click", async() => {
 
         console.log(id)
-        deletePet(id);
+        // const adoptions = await apiRequestAllAdoptions()
+        // const filter =  adoptions.filter((element)=>{
+        //         return element.pet.id == id
+        // })
+        // console.log(filter[0].id)
+        // apiRequestDeleteAdoption(filter[0].id)
+         deletePet(id);
 
     })
 
