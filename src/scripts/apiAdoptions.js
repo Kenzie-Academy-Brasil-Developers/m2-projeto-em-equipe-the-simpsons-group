@@ -1,4 +1,4 @@
-
+import { toast } from "./toastfy.js"
 
 export async function apiRequestCreateAdoption(petId){
     const token = localStorage.getItem("@kenziePet:Token")
@@ -17,7 +17,13 @@ export async function apiRequestCreateAdoption(petId){
         
     const response = await fetch('https://m2-api-adot-pet.herokuapp.com/adoptions', options) // endpoint de registro 
     const responseJson = await response.json()
-   
+
+    if(response.ok){
+        toast("sucess","Pet Adotado com Sucesso!")
+    }
+    else{
+        toast("fail","Não foi possível adotar esse pet!")
+    }
     console.log(responseJson)
    return responseJson
 }

@@ -1,3 +1,5 @@
+import {toast} from "../../scripts/toastfy.js"
+
 //Add a informação home no localstroage.
 function page(){
     localStorage.setItem("page", "login")
@@ -164,11 +166,13 @@ function login(){
         let resp = await loginApi(data)
 
         if(resp.message){
-            console.log("Erro")
+            toast("fail", "Não foi possível realizar o login!")
         }else{
-            console.log(resp)
-            localStorage.setItem("@kenziePet:Token", resp.token)
-            window.location.replace("../home-user/index.html")
+            localStorage.setItem("@kenziePet:Token", resp.token)            
+            toast("sucess", "Login Realizado com Sucesso!")
+            setTimeout(() => {
+                window.location.replace("../home-user/index.html")
+            }, 3500);
         }
 
     
