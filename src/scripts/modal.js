@@ -1,26 +1,3 @@
-export function createModal(modalToRender){
-    const body = document.querySelector("body");
-
-    const modalBg = document.createElement("div");
-    const modalBox = document.createElement("div");
-    const modalClose = document.createElement("span");
-
-    modalBg.classList = "modalBg flex items-center justify-center";
-    modalBox.classList = "modalBox";
-    modalClose.classList = "modalClose";
-
-    modalClose.innerText = "X";
-    modalClose.addEventListener("click",()=>{
-        window.location.reload()
-        modalBg.remove()
-    })
-
-    modalBox.append(modalToRender,modalClose)
-    modalBg.appendChild(modalBox)
-    body.appendChild(modalBg)
-
-}
-
 export function modalRegisterPet() {
 
     const body = document.querySelector("body");
@@ -117,6 +94,100 @@ export function modalAttPet() {
 
 }
 
+export function modalRefreshProfile() {
+
+    const body = document.querySelector("body");
+
+    const modalWrapper = document.createElement("div");
+    const modal = document.createElement("div");
+    const modalHeader = document.createElement("div");
+    const modalBody = document.createElement("div");
+    const title = document.createElement("p");
+    const btnClose = document.createElement("img");
+    const inputName = document.createElement("input");
+    const inputEmail = document.createElement("input");
+    const inputAvatar = document.createElement("input");
+    const btnRefresh = document.createElement("button");
+    const form = document.createElement("form");
+
+    modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
+    modal.classList.add("modalAttPet");
+    modalHeader.classList.add("modalHeader", "flex", "justify-end", "items-center");
+    modalBody.classList.add("modalBody", "flex", "justify-center", "items-center", "flex-col");
+    title.classList.add("font-size-1", "color-brand-1", "font-weight-2");
+    form.classList.add("flex", "flex-col");
+    inputName.id = "name";
+    inputAvatar.id = "avatar_url";
+    inputEmail.id = "species";
+    btnRefresh.classList.add("button-outline-brand-1");
+    btnRefresh.type = "submit";
+
+    btnRefresh.innerText = "Atualizar";    
+    inputName.placeholder = "Nome";
+    inputEmail.placeholder = "Email";
+    inputAvatar.placeholder = "Avatar";
+    btnClose.src = "../../assets/img/Vector.svg";
+    title.innerText = "Atualizar Perfil";
+
+    btnClose.addEventListener("click",() => {
+
+        modalWrapper.remove();
+
+    })
+
+    form.append(inputName, inputEmail, inputAvatar, btnRefresh);
+    modalBody.append(title, form);
+    modalHeader.append(btnClose);
+    modal.append(modalHeader, modalBody);
+    modalWrapper.append(modal);
+
+    body.append(modalWrapper);
+
+}
+
+export function modalDeleteProfile() {
+
+    const body = document.querySelector("body");
+
+    const modalWrapper = document.createElement("div");
+    const modal = document.createElement("div");
+    const modalHeader = document.createElement("div");
+    const modalBody = document.createElement("div");
+    const title = document.createElement("p");
+    const btnClose = document.createElement("img");
+    const modalButtons = document.createElement("div")
+    const btnCancel = document.createElement("button");
+    const btnDelete = document.createElement("button");
+
+    modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
+    modal.classList.add("modalAttPet");
+    modalHeader.classList.add("modalHeader", "flex", "justify-end", "items-center");
+    modalBody.classList.add("modalBody", "flex", "justify-center", "items-center", "flex-col");
+    title.classList.add("font-size-1", "color-brand-1", "font-weight-2");    
+    modalButtons.classList.add("modalButtons", "flex", "flex-col", "gap-small")
+    btnCancel.classList.add("button-default-brand-1");
+    btnDelete.classList.add("button-outline-red-1");
+
+    btnCancel.innerText = "Não desejo deletar minha conta"; 
+    btnDelete.innerText = "Quero deletar minha conta"; 
+    btnClose.src = "../../assets/img/Vector.svg";
+    title.innerText = "Deseja mesmo deletar sua conta?";
+
+    btnClose.addEventListener("click",() => {
+
+        modalWrapper.remove();
+
+    })
+
+    modalButtons.append(btnCancel,btnDelete)
+    modalBody.append(title, modalButtons);
+    modalHeader.append(btnClose);
+    modal.append(modalHeader, modalBody);
+    modalWrapper.append(modal);
+
+    body.append(modalWrapper);
+
+}
 /*
 
 <div class="modalWrapper flex justify-center items-center">

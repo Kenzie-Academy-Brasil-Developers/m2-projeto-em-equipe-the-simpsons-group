@@ -1,12 +1,12 @@
 
 import { getProfile } from "../../scripts/apiUser.js";
 import { getMyPets } from "../../scripts/apiPets.js";
-import {createModal, modalAttPet, modalRegisterPet} from "../../scripts/modal.js"
+import {modalRefreshProfile, modalAttPet, modalRegisterPet, modalDeleteProfile} from "../../scripts/modal.js"
 
 
 async function renderCardsPets(){
 
-    const pets =  await getMyPets("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4");
+    const pets =  await getMyPets();
     const ul = document.getElementById("ulCardsPets");
     ul.innerHTML = ""
 
@@ -40,9 +40,9 @@ async function renderCardsPets(){
 
         })
 
-        pName.innerText = "Nome:";
-        pSpecie.innerText = "Espécies:";
-        pAvailable.innerText = "Adotável:";
+        pName.innerText = "Nome: ";
+        pSpecie.innerText = "Espécies: ";
+        pAvailable.innerText = "Adotável: ";
         btnAtt.innerText = "Atualizar";
         if(element.available_for_adoption === true){
 
@@ -87,7 +87,7 @@ renderCardsPets()
 
 
 async function renderInfoProfile(){
-    const infoProfile = await getProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc4NDkzNzYsImV4cCI6MTY2ODQ1NDE3Niwic3ViIjoiYzQ4YjNiZGUtZjNmZS00NDRjLWIwMzAtYTg3YTFiZTQ2OWU1In0.1Uvf8Wx7TYKBBIcHE9H-Rp4Npt8p2BcjtbgcDVvOD-4")
+    const infoProfile = await getProfile()
     const sectionUserProfile = document.querySelector(".sectionUserProfile")
 
     sectionUserProfile.insertAdjacentHTML("beforeend",`
@@ -95,7 +95,7 @@ async function renderInfoProfile(){
         <img src=${infoProfile.avatar_url} alt="" class="imgProfile margin-bottom-small">
         <div class="boxText flex flex-col gap-small items-center">
             <h2 class="textTitle color-brand-1 font-size-2">Dados pessoais</h2>
-            <div class="textCont flex flex-col margin-bottom-small">
+            <div class="textCont flex flex-col margin-bottom-small gap-small">
                 <p class="textName font-weight-3"><strong class="color-brand-1">Nome: </strong>${infoProfile.name}</p>
                 <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
             </div>
@@ -108,13 +108,19 @@ async function renderInfoProfile(){
 
     const refreshBtn = document.querySelector(".refreshBtn")    
     const deleteBtn = document.querySelector(".deleteBtn")
+    const imgProfile = document.querySelector(".imgProfile")
+
+    imgProfile.addEventListener("error",(e)=>{
+        imgProfile.src = "https://cdn3.iconfinder.com/data/icons/web-development-and-programming-2/64/development_Not_Found-1024.png"
+        imgProfile.style.background = "gray"
+    })
 
     refreshBtn.addEventListener("click",()=>{
-        createModal()
+        modalRefreshProfile()
     })
 
     deleteBtn.addEventListener("click",()=>{
-        createModal()
+        modalDeleteProfile()
     })
     
 }
@@ -139,7 +145,7 @@ renderInfoProfile()
     })
 
     btnLogout.addEventListener("click",(e)=>{
-        window.location.replace("../../index.html");
+        window.location.replace("../home/index.html");
         localStorage.removeItem("@kenziePet:Token");
     })
 
