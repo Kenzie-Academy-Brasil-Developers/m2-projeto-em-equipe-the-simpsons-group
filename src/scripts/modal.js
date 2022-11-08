@@ -11,7 +11,7 @@ export function modalRegisterPet() {
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
     const inputName = document.createElement("input");
-    const inputSpecies = document.createElement("input");
+    const selectSpecies = document.createElement("select");
     const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
     const btnRegister = document.createElement("button");
@@ -26,7 +26,7 @@ export function modalRegisterPet() {
     inputName.id = "name";
     inputAvatar.id = "avatar_url";
     inputBread.id = "bread";
-    inputSpecies.id = "species";
+    selectSpecies.id = "species";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
@@ -34,9 +34,18 @@ export function modalRegisterPet() {
     inputAvatar.placeholder = "Avatar";
     inputBread.placeholder = "Raça";
     inputName.placeholder = "Nome";
-    inputSpecies.placeholder = "Espécie";
+    selectSpecies.placeholder = "Espécie";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Cadastrar Pet";
+
+    selectSpecies.insertAdjacentHTML("beforeend",`
+    <option value="">Espécie</option>
+    <option value="Cachorro">Cachorro</option>
+    <option value="Gatos">Gatos</option>
+    <option value="Aves">Aves</option>
+    <option value="Repteis">Répteis</option>
+    <option value="Outros">Outros</option>
+    `)
 
     btnClose.addEventListener("click",() => {
 
@@ -44,7 +53,7 @@ export function modalRegisterPet() {
 
     })
 
-    form.append(inputName, inputSpecies, inputAvatar, inputBread,btnRegister);
+    form.append(inputName, selectSpecies, inputAvatar, inputBread,btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);
@@ -54,8 +63,7 @@ export function modalRegisterPet() {
 
 }
 
-export function modalAttPet() {
-
+export function modalAttPet() {    
     const body = document.querySelector("body");
 
     const modalWrapper = document.createElement("div");
@@ -64,10 +72,13 @@ export function modalAttPet() {
     const modalBody = document.createElement("div");
     const title = document.createElement("p");
     const btnClose = document.createElement("img");
+    const inputName = document.createElement("input");
+    const inputBread = document.createElement("input");
     const inputAvatar = document.createElement("input");
+    const selectSpecies = document.createElement("select");
     const btnRegister = document.createElement("button");
     const form = document.createElement("form");
-    const inputName = document.createElement("input");
+    
 
     modalWrapper.classList.add("modalWrapper", "flex", "justify-center", "items-center");
     modal.classList.add("modalAttPet");
@@ -77,14 +88,27 @@ export function modalAttPet() {
     form.classList.add("flex", "flex-col");
     inputAvatar.id = "avatar_url";
     inputName.id = "name";
+    inputBread.id = "bread";
+    selectSpecies.id = "species";
     btnRegister.classList.add("button-outline-brand-1");
     btnRegister.type = "submit";
 
-    inputName.placeholder = "Nome";
-    btnRegister.innerText = "Atualizar";
+    inputName.placeholder = "Nome";    
     inputAvatar.placeholder = "Avatar";
+    inputBread.placeholder = "Raça";
+    btnRegister.innerText = "Atualizar";
     btnClose.src = "../../assets/img/Vector.svg";
     title.innerText = "Atualizar Pet";
+    
+
+    selectSpecies.insertAdjacentHTML("beforeend",`
+    <option value="">Espécie</option>
+    <option value="Cachorro">Cachorro</option>
+    <option value="Gatos">Gatos</option>
+    <option value="Aves">Aves</option>
+    <option value="Repteis">Répteis</option>
+    <option value="Outros">Outros</option>
+    `)
 
     btnClose.addEventListener("click",() => {
 
@@ -92,7 +116,7 @@ export function modalAttPet() {
 
     })
 
-    form.append(inputName, inputAvatar, btnRegister);
+    form.append(inputName, selectSpecies,inputBread,inputAvatar, btnRegister);
     modalBody.append(title, form);
     modalHeader.append(btnClose);
     modal.append(modalHeader, modalBody);

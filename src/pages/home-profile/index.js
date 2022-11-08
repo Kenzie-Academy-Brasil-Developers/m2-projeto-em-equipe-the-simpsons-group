@@ -17,7 +17,7 @@ function attPet(id) {
 
         elements.forEach((elem) => {
 
-            if(elem.value !== "" && elem.tagName == "INPUT") {
+            if(elem.value !== "" && (elem.tagName == "INPUT" || elem.tagName == "SELECT")) {
 
                 body[elem.id] = elem.value;
 
@@ -44,7 +44,7 @@ function createPet() {
 
         elements.forEach((elem) => {
 
-            if(elem.value !== "" && elem.tagName == "INPUT") {
+            if(elem.value !== "" && (elem.tagName == "INPUT" || elem.tagName == "SELECT")) {
 
                 body[elem.id] = elem.value;
 
