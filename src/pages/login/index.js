@@ -176,12 +176,96 @@ function login(){
     })
 }
 
+function pageWindow(){
+
+    let screenViewPort = document.querySelector(".screen-viewport")
+    let contLogin = document.querySelector(".cont-login")
+    let imgCat = document.querySelector(".img-cat")
+    let body = document.querySelector("body")
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        if(window.screen.width >= 800){
+
+            let contImg = document.querySelector(".cont-img")
+
+            if(contImg !== null){
+                screenViewPort.removeChild(contImg)
+            }
+
+            let div = document.createElement("div")
+            div.classList.add("cont-img", "flex", "items-center", "justify-center")
+
+            let img = document.createElement("img")
+            img.setAttribute("class", "img-dog")
+            img.setAttribute("alt", "cachorro")
+            img.setAttribute("src", "https://i.ibb.co/GHCbfvp/e-II-Humano-VOC-vai-logar.png")
+
+            div.append(img)
+            screenViewPort.append(div)
+
+            imgCat.style.borderRadius="50%"
+            contLogin.style.padding="3rem"
+            contLogin.style.borderRadius="3rem"
+            body.style.backgroundImage="none"
+            
+        }else{
+            let contImg = document.querySelector(".cont-img")
+
+            if(contImg !== null){
+                screenViewPort.removeChild(contImg)
+            }
+            imgCat.style.borderRadius="0rem"
+            contLogin.style.padding="1rem"
+            contLogin.style.borderRadius="0rem"
+            body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+        }
+    })
+    
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 800){
+
+            let contImg = document.querySelector(".cont-img")
+
+            let div = document.createElement("div")
+            div.classList.add("cont-img", "flex", "items-center", "justify-center")
+
+            if(contImg !== null){
+                screenViewPort.removeChild(contImg)
+            }
+
+            let img = document.createElement("img")
+            img.classList.add("img-dog")
+            img.setAttribute("alt", "cachorro")
+            img.setAttribute("src", "https://i.ibb.co/GHCbfvp/e-II-Humano-VOC-vai-logar.png")
+
+            div.append(img)
+            screenViewPort.append(div)
+
+            imgCat.style.borderRadius="50%"
+            contLogin.style.padding="3rem"
+            contLogin.style.borderRadius="3rem"
+            body.style.backgroundImage="none"
+        }else{
+            let contImg = document.querySelector(".cont-img")
+
+            if(contImg !== null){
+                screenViewPort.removeChild(contImg)
+            }
+            imgCat.style.borderRadius="0rem"
+            contLogin.style.padding="1rem"
+            contLogin.style.borderRadius="0rem"
+            body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+        }
+    })
+}
+
 //Chama todas as funções.
 function callFunctions(){
     page()
     menu()
     changeImg()
     login()
+    pageWindow()
 }
 
 callFunctions()
