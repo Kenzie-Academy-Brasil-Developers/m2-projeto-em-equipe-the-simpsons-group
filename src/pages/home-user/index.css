@@ -6,13 +6,18 @@ main{
     margin-top: 50px;
   
 }
+
+#logoTitle{
+    cursor: pointer;
+}
+
 .listAllPetsForAdoption{
     width: 90%;
     margin: 0 auto;
     max-width: 400px;
     gap: 60px;
     overflow: auto;
-    height: 290px;
+    height: 350px;
     padding: 1rem 0;
 }
 
@@ -23,7 +28,6 @@ main{
         min-width: 200px;
         height: fit-content;
         padding-bottom: 5px;
-        /* border: 1px solid black; */
     }
 
         .card-pet > img{
