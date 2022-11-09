@@ -7,32 +7,46 @@
     <title>Login</title>
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="../../styles/globalStyle.css">
-    <link rel="stylesheet" href="../../styles/header.css">
-    <link rel="stylesheet" href="../../styles/footer.css">
     <link rel="stylesheet" href="../../styles/animations.css">
-    <link rel="stylesheet" href="../../styles/buttons.css">
     <link rel="stylesheet" href="../../styles/flex.css">
     <link rel="stylesheet" href="../../styles/fonts.css">
     <link rel="stylesheet" href="../../styles/inputs.css">
     <link rel="stylesheet" href="../../styles/spaces.css">
     <link rel="stylesheet" href="../../styles/toastfy.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/footer.css">
     <link rel="stylesheet" href="index.css">
-    <script defer src="index.js"></script>
+    <script defer type="module" src="index.js"></script>
 </head>
-<body>
-    <main class="flex items-center justify-center">
-        <div class="screen-viewport flex items-center justify-center gap-medium">
-            <form class="cont-login flex items-center justify-end gap-medium flex-col">
-                <img src="https://i.ibb.co/RbwQyDv/Passa-A-senha-2.png" alt="gato" class="img-cat" id="change-img">
-                <p class="font-size-3 font-weight-2 color-white-1">Digite suas informações para logar, Obrigado!</p>
-                <input type="email" placeholder="Insira seu email" class="font-size-4 color-black-1 inputs-login-register" id="input-email" required>
-                <input type="password" placeholder="Insira sua senha" class="font-size-4 color-black-1 inputs-login-register" id="input-password" required>
-                <button class="button-login-register font-size-3 font-weight-1 color-black-1" id="btn-login">Logar</button>
-            </form>
-            <div class="cont-img flex items-center justify-center">
-                <img src="https://i.ibb.co/GHCbfvp/e-II-Humano-VOC-vai-logar.png" alt="cachorro" class="img-dog">
+<body class="flex flex-col justify-between">
+    <header class="flex items-center">
+        <div class="container flex items-center">
+        <div class="headerBoxLeft flex justify-between">
+            <h2 class="font-size-1 font-weight-1 color-brand-1">KenziePets</h2>
+            <img src="../../assets/img/menu-burguer.svg" alt="" id="btn-burguer">
+        </div>
+        <div class="headerBoxRight justify-between items-center">
+            <button class="button-outline-brand-1" id="btn-register">Cadastrar</button>
+            <button class="button-default-brand-1" id="btn-home">Home</button>
+        </div>
+       </div>
+    </header>
+    <main>
+        <div class="screen-viewport">
+            <div class="cont-center flex">
+                <form class="cont-login flex items-center justify-end gap-medium flex-col">
+                    <img src="https://i.ibb.co/RbwQyDv/Passa-A-senha-2.png" alt="gato" class="img-cat" id="change-img">
+                    <p class="font-size-3 font-weight-2 color-black-1">Digite suas informações para logar, Obrigado!</p>
+                    <input type="email" placeholder="Insira seu email" class="font-size-4 color-black-1 inputs-login-register" id="input-email" required>
+                    <input type="password" placeholder="Insira sua senha" class="font-size-4 color-black-1 inputs-login-register" id="input-password" required>
+                    <button class="button-login button-login-register font-size-3 font-weight-1 color-black-1" id="btn-login">Logar</button>
+                </form>
             </div>
         </div>
     </main>
+    <footer class="flex items-center justify-center ">
+        <span class="font-size-5 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
+    </footer>
 </body>
 </html>

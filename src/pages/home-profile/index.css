@@ -1,26 +1,49 @@
+#logoTitle{
+    cursor: pointer;
+}
 
 .sectionMyPets {
-    max-width: 1000px;
     margin: 0 auto;
+    max-width: 480px;
+    width: 90%;
+}
+
+#ulCardsPets {
+    overflow: auto;
+    padding: 20px;
 }
 
 .imgPets {
-    background-color: aqua;
-    width: 200px;
+    width: 100%;
     height: 100%;
     border-radius: 4px 0px 0px 4px;
+    object-fit: cover;
+    overflow: auto;
 }
 
 .cardPet {
     box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
-    width: 480px;
-    height: 200px;
+    min-width: 350px;
+    height: 180px;
     border-radius: 4px;
+    background-color: var(--color-grey-2);
 }
 
 .divDescription {
-    padding: 40px;
+    padding: 20px;
     gap: 5px;
+    width: 100%;
+}   
+
+    .divDescription >p{
+        width: 150px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+    }
+
+.divDescription > button{
+   width: fit-content;
 }
 
 .boxLabel{
@@ -45,15 +68,79 @@
 
 .boxText{
     padding: 24px;    
-    width: 480px;
-    height: 254px;
+    width: 90%;
+    max-width: 480px;
+    height: fit-content;
     box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
     border-radius: 4px;
+    background-color: var(--color-grey-4);
 }
 
-.TextCont{
+.textCont{
     width: 100%;
     gap: 0.5rem;
 }
 
+.TextBtns{
+    flex-direction: column;
+}
 
+@media (min-width:900px){
+    .boxText{  
+        max-width: 480px;
+    }
+
+    .TextBtns{
+        flex-direction: row;
+    }
+   
+
+
+@media(min-width:1100px){
+
+    .sectionMyPets {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .cardPet {
+        width: 480px;
+        height: 200px;
+    }
+
+    .divDescription {
+        padding: 40px;
+    }
+
+    #ulCardsPets {
+        overflow: unset;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .divDescription >p{
+        width: 200px;
+    }
+
+}
+
+}
+
+
+
+.cover{
+    height: 223px;
+    width: 100%;
+    background-image: url("../../assets/img/thesimpsons2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.bodyImg{
+    height: 100%;
+    background-image: url("../../assets/img/4136850.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

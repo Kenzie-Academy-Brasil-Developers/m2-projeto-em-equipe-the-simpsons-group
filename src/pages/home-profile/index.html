@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,60 +12,52 @@
     <link rel="stylesheet" href="../../styles/flex.css">
     <link rel="stylesheet" href="../../styles/footer.css">
     <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    <link rel="stylesheet" href="../../styles/modal.css">
+    <link rel="stylesheet" href="../../styles/toastfy.css">
     <link rel="stylesheet" href="./index.css">
     <title>Profile</title>
 </head>
 <body>
 
-    <header>
+    <header class=" flex items-center ">
+       
+        <div class="container flex items-center">
+        <div class="headerBoxLeft flex justify-between">
+            <h2 class="font-size-1 font-weight-1 color-brand-1" id="logoTitle" title="Ativar Simpsons Mode">KenziePets</h2>
+            <img src="../../assets/img/menu-burguer.svg" alt="" id="btn-burguer">
+        </div>
+        <div class="headerBoxRight justify-between items-center">
+            <button class="button-outline-brand-1" id="btn-home">Home</button>
+            <button class="button-default-brand-1" id="btn-logout">Logout</button>
+        </div>
+       </div>
 
     </header>
 
     <main>
 
-        <section class="sectionUserProfile">
-            <div class="boxLabel"></div>
-            <!-- <div class="boxProfile flex flex-col items-center justify-center">                
-                <img src="../../assets/img/img-profile.svg" alt="" class="imgProfile margin-bottom-small">
-                <div class="boxText flex flex-col gap-small items-center">
-                    <h2 class="TextTitle color-brand-1 font-size-2">Dados pessoais</h2>
-                    <div class="TextCont flex flex-col margin-bottom-small">
-                        <p class="textName font-weight-3"><strong class="color-brand-1">Nome: </strong>Kenzinha</p>
-                        <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>kenzinha@kenzie.com.br</p>
-                        <p class="textDate font-weight-3"><strong class="color-brand-1">Data de nascimento: </strong>21/03/2000</p>
-                    </div>
-                    <div class="TextBtns flex gap-small">
-                        <button class="refreshBtn">Atualizar informações</button>
-                        <button class="deleteBtn">Deletar conta</button>
-                    </div>
-                </div>
-            </div> -->
-
+        <section class="sectionUserProfile margin-bottom-big">
+        <div class="boxLabel"></div>
+        
         </section>
 
         <section class="sectionMyPets">
 
-            <button>Cadastrar novo pet</button>
+            <button class="button-default-green-1" id="btnRegisterNewPet">Cadastrar novo pet</button>
 
-            <ul class="margin-top-small flex gap-small wrap" id="ulCardsPets">
-                <li class="cardPet flex">
-                    <div class="imgPets"></div>
-                    <div class="divDescription flex flex-col justify-center">
-                        <p id="" class="font-size-4 color-brand-1">Nome: <span class="font-size-4 color-black-1">Bidu</span></p>
-                        <p id="" class="font-size-4 color-brand-1">Espécie: <span class="font-size-4 color-black-1">Cachorro</span></p>
-                        <p id="" class="font-size-4 color-brand-1">Adotável: <span class="font-size-4 color-black-1">Sim</span></p>
-                        <button>Atualizar</button>
-                    </div>
-                </li>
+            <ul class="margin-top-small flex gap-small flex-row" id="ulCardsPets">
+                
             </ul>
 
         </section>
 
     </main>
 
-    <footer>
-
+    <footer class="flex items-center justify-center ">
+        <span class="font-size-5 color-brand-1 font-weight-3">KenziePets | Todos os Direitos Reservados</span>
     </footer>
+
     <script type="module" src="./index.js"></script>
 </body>
 </html>

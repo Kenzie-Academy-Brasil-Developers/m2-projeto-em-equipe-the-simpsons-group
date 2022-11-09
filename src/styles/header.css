@@ -2,9 +2,12 @@ header{
     width: 100%;
     padding: 0 5%;
     margin: 0 auto;
-    height: 80px;
+    min-height: 80px;
     position: relative;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid var(--color-grey-2);
+    background-color: var(--color-grey-1);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 
 .headerBoxLeft{
@@ -13,14 +16,20 @@ header{
 
 .headerBoxRight{
     display: none;
-    padding: 0 5%;
-    width: 100%;
-    height: 50px;
+    width: 295px;
+    height: 78px;
+    z-index: 1;
+    padding: 1rem;
+    background-color: var(--color-white-1);
+    border: 2px solid black;
     position: absolute;
-    background-color: white;
-    top: 80px;
-    left: 0;
+    bottom: -4rem;
+    right: 1.5rem;
+    border-radius: 1rem 0rem 1rem 1rem;
 }
+    .headerBoxRight > button{
+       height: 100%;
+    }
 
 .show{
     display: flex;
@@ -46,5 +55,9 @@ header{
         background-color: transparent;
         top: 80px;
         left: 0;
+        border: none;
     }
+        .headerBoxRight > button{
+            height: 42px;
+        }
 }

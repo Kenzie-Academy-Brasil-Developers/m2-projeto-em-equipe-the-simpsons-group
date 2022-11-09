@@ -1,18 +1,27 @@
+import {toast} from "../../scripts/toastfy.js"
 
+
+//Add a informação home no localstroage.
+function page(){
+    localStorage.setItem("page", "login")
+}
+
+
+//Troca as imagens ao passar o cursor do mouse.
 function changeImg(){
     let img = document.querySelector("#change-img")
     
     img.addEventListener("mouseenter", ()=>{
-        console.log("teste")
         img.setAttribute("src", "https://i.ibb.co/7Cp9WyQ/Passa-A-senha-1.png")
     })
 
     img.addEventListener("mouseleave", ()=>{
-        console.log("teste")
         img.setAttribute("src", "https://i.ibb.co/RbwQyDv/Passa-A-senha-2.png")
     })
 }
 
+
+//Faz o login do usuário.
 async function loginApi(data) {
     
     try{
@@ -34,6 +43,8 @@ async function loginApi(data) {
     }
 }
 
+
+//Passa os dados do input e chama a função de loginApi.
 function login(){
 
     let form = document.querySelector("form")
@@ -52,22 +63,64 @@ function login(){
         let resp = await loginApi(data)
 
         if(resp.message){
-            console.log("Erro")
+            toast("fail", "Não foi possível realizar o login!")
         }else{
-            console.log(resp)
-            localStorage.setItem("@kenziePet:Token", resp.token)
-            window.location.replace("../home-user/index.html")
+            localStorage.setItem("@kenziePet:Token", resp.token)            
+            toast("sucess", "Login Realizado com Sucesso!")
+            setTimeout(() => {
+                window.location.replace("../home-user/index.html")
+            }, 3500);
         }
 
-    
-       
     })
 }
 
+
+//Monitora a minha tela.
+function pageWindow(){
+
+    const btnBurguer = document.querySelector("#btn-burguer")
+    const headerBoxRight = document.querySelector(".headerBoxRight")
+    const btnHome = document.querySelector("#btn-home")
+    const btnRegister = document.querySelector("#btn-register")
+
+    btnBurguer.addEventListener("click",()=>{
+     
+        if (headerBoxRight.classList.contains("show")){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }else{
+            headerBoxRight.classList = "headerBoxRight justify-between items-center show"
+            btnBurguer.src = "../../assets/img/close.svg"
+        }
+        
+    })
+
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 500){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }
+    })
+
+    btnHome.addEventListener("click",(e)=>{
+        window.location.replace("../home/index.html")
+    })
+
+    btnRegister.addEventListener("click",(e)=>{
+        window.location.replace("../register/index.html")
+    })
+}
+
+
+//Chama todas as funções.
 function callFunctions(){
+    page()
     changeImg()
     login()
+    pageWindow()
 }
+
 
 callFunctions()
 
