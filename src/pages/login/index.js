@@ -81,73 +81,12 @@ function login(){
 //Monitora a minha tela.
 function pageWindow(){
 
-    let screenViewPort = document.querySelector(".screen-viewport")
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-        if(window.screen.width >= 800){
-
-            let contImg = document.querySelector(".cont-img")
-
-            if(contImg !== null){
-                screenViewPort.removeChild(contImg)
-            }
-
-            let div = document.createElement("div")
-            div.classList.add("cont-img", "flex", "items-center", "justify-center")
-
-            let img = document.createElement("img")
-            img.setAttribute("class", "img-dog")
-            img.setAttribute("alt", "cachorro")
-            img.setAttribute("src", "https://i.ibb.co/GHCbfvp/e-II-Humano-VOC-vai-logar.png")
-
-            div.append(img)
-            screenViewPort.append(div)
-            
-        }else{
-            let contImg = document.querySelector(".cont-img")
-
-            if(contImg !== null){
-                screenViewPort.removeChild(contImg)
-            }
-        }
-
-    })
-    
-    window.addEventListener("resize", ()=>{
-        if(window.screen.width >= 800){
-
-            let contImg = document.querySelector(".cont-img")
-
-            let div = document.createElement("div")
-            div.classList.add("cont-img", "flex", "items-center", "justify-center")
-
-            if(contImg !== null){
-                screenViewPort.removeChild(contImg)
-            }
-
-            let img = document.createElement("img")
-            img.classList.add("img-dog")
-            img.setAttribute("alt", "cachorro")
-            img.setAttribute("src", "https://i.ibb.co/GHCbfvp/e-II-Humano-VOC-vai-logar.png")
-
-            div.append(img)
-            screenViewPort.append(div)
-
-        }else{
-            let contImg = document.querySelector(".cont-img")
-
-            if(contImg !== null){
-                screenViewPort.removeChild(contImg)
-            }
-        }
-    })
-
     const btnBurguer = document.querySelector("#btn-burguer")
     const headerBoxRight = document.querySelector(".headerBoxRight")
     const btnHome = document.querySelector("#btn-home")
     const btnRegister = document.querySelector("#btn-register")
 
-    btnBurguer.addEventListener("click",(e)=>{
+    btnBurguer.addEventListener("click",()=>{
      
         if (headerBoxRight.classList.contains("show")){
             headerBoxRight.classList = "headerBoxRight justify-between items-center"

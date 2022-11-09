@@ -108,141 +108,6 @@ async function registerApi(data) {
 //Monitora minha tela.
 function pageWindow(){
 
-    let main = document.querySelector("main")
-    let form = document.querySelector("form")
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-        if(window.screen.width >= 1001 && window.screen.height >= 901){
-
-            let imgSpying = document.querySelector(".cat-spying")
-            let imgTalking = document.querySelector(".cont-pets-talking")
-            let contChangeImg = document.querySelector(".cont-change-img")
-
-            if(imgSpying !== null || imgTalking !== null){
-               main.removeChild(imgSpying)
-               main.removeChild(imgTalking)
-            }
-
-            if(contChangeImg !== null){
-                form.removeChild(contChangeImg)
-             }
-
-            let div = document.createElement("div")
-            div.classList.add("cont-pets-talking")
-
-            let div2 = document.createElement("div")
-            div2.classList.add("cont-change-img")
-
-            let img3 = document.createElement("img")
-            img3.classList.add("img-cat")
-            img3.setAttribute("alt", "gato")
-            img3.setAttribute("id", "change-img")
-            img3.setAttribute("src", "https://i.ibb.co/bJjYV8s/Passa-A-senha-2.png")
-
-            div2.append(img3)
-
-            let img1 = document.createElement("img")
-            let img2 = document.createElement("img")
-
-            img1.classList.add("cat-spying")
-            img2.classList.add("img-pets-talking")
-
-            img1.setAttribute("alt", "gato espiando")
-            img2.setAttribute("alt", "pets conversando")
-
-            img1.setAttribute("src", "https://i.ibb.co/p12YxdS/gato-1.png")
-            img2.setAttribute("src", "https://i.ibb.co/KGN52Xr/Design-sem-nome.png")
-
-            div.append(img2)
-
-            main.append(img1, div)
-            form.append(div2)
-
-            catsAnimations()
-            changeImg()
-
-        }else{
-            let imgSpying = document.querySelector(".cat-spying")
-            let imgTalking = document.querySelector(".cont-pets-talking")
-            let contChangeImg = document.querySelector(".cont-change-img")
-
-            if(imgSpying !== null || imgTalking !== null){
-                main.removeChild(imgSpying)
-                main.removeChild(imgTalking)
-             }
-
-             if(contChangeImg !== null){
-                form.removeChild(contChangeImg)
-             }
-        }
-    })
-    
-    window.addEventListener("resize", ()=>{
-        if(window.screen.width >= 1001 && window.screen.height >= 901){
-            let imgSpying = document.querySelector(".cat-spying")
-            let imgTalking = document.querySelector(".cont-pets-talking")
-            let contChangeImg = document.querySelector(".cont-change-img")
-
-            if(imgSpying !== null || imgTalking !== null){
-               main.removeChild(imgSpying)
-               main.removeChild(imgTalking)
-            }
-
-            if(contChangeImg !== null){
-                form.removeChild(contChangeImg)
-             }
-
-            let div = document.createElement("div")
-            div.classList.add("cont-pets-talking")
-
-            let div2 = document.createElement("div")
-            div2.classList.add("cont-change-img")
-
-            let img3 = document.createElement("img")
-            img3.classList.add("img-cat")
-            img3.setAttribute("alt", "gato")
-            img3.setAttribute("id", "change-img")
-            img3.setAttribute("src", "https://i.ibb.co/bJjYV8s/Passa-A-senha-2.png")
-
-            div2.append(img3)
-
-            let img1 = document.createElement("img")
-            let img2 = document.createElement("img")
-
-            img1.classList.add("cat-spying")
-            img2.classList.add("img-pets-talking")
-
-            img1.setAttribute("alt", "gato espiando")
-            img2.setAttribute("alt", "pets conversando")
-
-            img1.setAttribute("src", "https://i.ibb.co/p12YxdS/gato-1.png")
-            img2.setAttribute("src", "https://i.ibb.co/KGN52Xr/Design-sem-nome.png")
-
-            div.append(img2)
-
-            main.append(img1, div)
-            form.append(div2)
-
-            catsAnimations()
-            changeImg()
-           
-        }else{
-            let imgSpying = document.querySelector(".cat-spying")
-            let imgTalking = document.querySelector(".cont-pets-talking")
-            let contChangeImg = document.querySelector(".cont-change-img")
-
-            if(imgSpying !== null || imgTalking !== null){
-               main.removeChild(imgSpying)
-               main.removeChild(imgTalking)
-            }
-
-            if(contChangeImg !== null){
-                form.removeChild(contChangeImg)
-             }
-             
-        }
-    })
-
     const btnBurguer = document.querySelector("#btn-burguer")
     const headerBoxRight = document.querySelector(".headerBoxRight")
     const btnHome = document.querySelector("#btn-home")
@@ -284,6 +149,7 @@ function callFunctions(){
     page()
     register()
     pageWindow()
+    catsAnimations()
 }
 
 callFunctions()

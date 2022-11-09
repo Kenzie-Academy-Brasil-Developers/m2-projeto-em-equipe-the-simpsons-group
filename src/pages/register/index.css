@@ -13,7 +13,9 @@ body{
 }
 
 main, .screen-viewport{
+    display: block;
     height: 90%;
+    margin: auto;
 }
 
 main, #input-email, #input-password,  
@@ -26,7 +28,7 @@ main, #input-email, #input-password,
 }
 
 .cont-register{
-    margin: 5rem 0rem 5rem 0rem;
+    margin: 5rem auto 5rem auto;
     z-index: 1;
     border-radius: 3rem;
     width: 30rem;
@@ -65,6 +67,7 @@ img{
     z-index: 0;
     transform: rotate(50deg);
     left: -140px;
+    bottom: 300px;
     position: absolute;
     width: 400px;
     height: 400px;
@@ -81,9 +84,13 @@ img{
 
 @media only screen and (max-height: 900px) {
 
+    .img-cat, .cont-change-img{
+        display: none;
+    }
+
     .cont-register{
         padding: 1rem;
-        margin: 10rem 0rem 10rem 0rem;
+        margin: 10rem auto 10rem auto;
         border-radius: 0rem;
         height: 500px;
         max-width: 350px;
@@ -91,14 +98,18 @@ img{
 
 } 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1602px) {
 
     .cont-register{
         padding: 1rem;
-        margin: 10rem 0rem 10rem 0rem;
+        margin: 10rem auto 10rem auto;
         border-radius: 0rem;
         height: 500px;
-        max-width: 350px;
+        max-width: 300px;
+    }
+
+    .cont-pets-talking, .cat-spying, .cont-change-img, .img-cat{
+        display: none;
     }
 
     body{
@@ -108,7 +119,7 @@ img{
     }
 
     .screenViewPort{
-        margin: 2rem 0rem 6rem 0rem;
+        margin: 2rem auto 6rem auto;
     }
 
     header{
