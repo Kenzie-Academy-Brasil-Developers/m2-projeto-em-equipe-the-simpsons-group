@@ -5,109 +5,8 @@ function page(){
     localStorage.setItem("page", "register")
 }
 
-//Cria buttons para o formato de tela desktop
-function createButtonsDesktop(){
 
-    let container = document.querySelector(".cont-header-buttons")
-
-    container.innerHTML=""
-
-    let page = localStorage.getItem("page")
-
-    let a1 = document.createElement("a")
-    let a2 = document.createElement("a")
-
-    a1.classList.add("button-outline-brand-1", "font-size-3")
-    a2.classList.add("button-default-brand-1", "font-size-3")
-
-    if(page === "register"){
-        a1.setAttribute("href", "../../pages/login/index.html")
-        a2.setAttribute("href", "../../pages/home/index.html")
-
-        a1.innerText="Login"
-        a2.innerText="Home"
-    }
-
-    container.append(a1, a2,)
-}
-
-//Cria buttons para o formato de tela mobile.
-function createButtonsMobile(){
-
-    let container = document.querySelector(".cont-header-buttons")
-
-    let page = localStorage.getItem("page")
-
-    let a1 = document.createElement("a")
-    let a2 = document.createElement("a")
-    let div = document.createElement("div") 
-
-    a1.classList.add("button-outline-brand-1", "font-size-3")
-    a2.classList.add("button-default-brand-1", "font-size-3")
-    div.classList.add("cont-menu", "flex", "align-center", "justify-center", "gap-small")
-
-    if(page === "register"){
-        a1.setAttribute("href", "../../pages/login/index.html")
-        a2.setAttribute("href", "../../pages/home/index.html")
-
-        a1.innerText="Login"
-        a2.innerText="Home"
-    }
-
-    div.append(a1, a2)
-    container.append(div)
-}
-
-//Cria o menu hamburger
-function createMenuHamburger(){
-    let container = document.querySelector(".cont-header-buttons")
-
-    container.innerHTML=""
-
-    let value = false
-
-    let img = document.createElement("img")
-
-  
-    img.setAttribute("src", "../../assets/img/menu-burguer.svg")
-    
-
-    img.addEventListener("click", ()=>{
-        if(value === false){
-            createButtonsMobile()
-            value = true
-        }else if(value === true){
-            let menu = document.querySelector(".cont-menu")
-            container.removeChild(menu)
-            value = false
-        }
-    })
-
-    container.append(img)
-
-}
-
-//Fica monitorando a tela para a troca de buttons.
-function menu(){
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-        if(window.screen.width >= 800){
-            createButtonsDesktop()
-        }else{
-            createMenuHamburger()
-        }
-    })
-    
-    window.addEventListener("resize", ()=>{
-        if(window.screen.width >= 800){
-            createButtonsDesktop()
-        }else{
-            createMenuHamburger()
-        }
-    })
-              
-}
-
+//Troca a imagem
 function changeImg(){
 
     let changeImg = document.getElementById("change-img")
@@ -116,11 +15,17 @@ function changeImg(){
 
     input.addEventListener("keyup", ()=>{
         changeImg.setAttribute("src", input.value)
+
+        if(input.value === ""){
+            changeImg.setAttribute("src", "https://i.ibb.co/bJjYV8s/Passa-A-senha-2.png")
+        }
     })
 
     changeImg.addEventListener("error", ()=>{
-        changeImg.setAttribute("src", "https://i.ibb.co/GQ71gJz/Passa-A-senha-1.png")
+        changeImg.setAttribute("src", "https://i.ibb.co/vVVHB1k/erro.png")
     })
+
+    
 
 }
 
@@ -144,6 +49,7 @@ function catsAnimations(){
     
 }
 
+//Puxa os dados do input e manda para Api.
 function register(){
 
     let form = document.querySelector("form")
@@ -177,6 +83,7 @@ function register(){
     })
 }
 
+//Faz o registro.
 async function registerApi(data) {
     
     try{
@@ -198,12 +105,11 @@ async function registerApi(data) {
     }
 }
 
+//Monitora minha tela.
 function pageWindow(){
 
     let main = document.querySelector("main")
-    let body = document.querySelector("body")
     let form = document.querySelector("form")
-    let contRegister = document.querySelector(".cont-register")
 
     document.addEventListener("DOMContentLoaded", ()=>{
         if(window.screen.width >= 1400){
@@ -235,9 +141,6 @@ function pageWindow(){
 
             div2.append(img3)
 
-            contRegister.style.height="45rem"
-            contRegister.style.width="30rem"
-
             let img1 = document.createElement("img")
             let img2 = document.createElement("img")
 
@@ -258,11 +161,6 @@ function pageWindow(){
             catsAnimations()
             changeImg()
 
-            contRegister.style.padding="3rem"
-            contRegister.style.borderRadius="3rem"
-            body.style.backgroundImage="none"
-            
-
         }else{
             let imgSpying = document.querySelector(".cat-spying")
             let imgTalking = document.querySelector(".cont-pets-talking")
@@ -276,24 +174,7 @@ function pageWindow(){
              if(contChangeImg !== null){
                 form.removeChild(contChangeImg)
              }
-
-            contRegister.style.maxHeight="45rem"
-            contRegister.style.maxWidth="30rem"
-
-            
-             contRegister.style.padding="1rem"
-             contRegister.style.borderRadius="0rem"
-             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
         }
-
-        if(window.screen.height <= 750){
-            body.style.height=`${window.screen.height+100}px`
-            body.style.overflow="auto"
-        }else{
-            body.style.height="100vh"
-            body.style.overflow="hidden"
-        }
-      
     })
     
     window.addEventListener("resize", ()=>{
@@ -325,9 +206,6 @@ function pageWindow(){
 
             div2.append(img3)
 
-            contRegister.style.height="45rem"
-            contRegister.style.width="30rem"
-
             let img1 = document.createElement("img")
             let img2 = document.createElement("img")
 
@@ -347,10 +225,6 @@ function pageWindow(){
 
             catsAnimations()
             changeImg()
-
-            contRegister.style.padding="3rem"
-            contRegister.style.borderRadius="3rem"
-            body.style.backgroundImage="none"
            
         }else{
             let imgSpying = document.querySelector(".cat-spying")
@@ -362,35 +236,52 @@ function pageWindow(){
                main.removeChild(imgTalking)
             }
 
-
             if(contChangeImg !== null){
                 form.removeChild(contChangeImg)
              }
-
-             contRegister.style.maxHeight="45rem"
-             contRegister.style.maxWidth="30rem" 
-
-             contRegister.style.padding="1rem"
-             contRegister.style.borderRadius="0rem"
-             body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
+             
         }
     })
 
-    if(window.screen.height <= 750){
-        body.style.height=`${window.screen.height+100}px`
-        body.style.overflow="auto"
-    }else{
-        body.style.height="100vh"
-        body.style.overflow="hidden"
-    }
+    const btnBurguer = document.querySelector("#btn-burguer")
+    const headerBoxRight = document.querySelector(".headerBoxRight")
+    const btnHome = document.querySelector("#btn-home")
+    const btnLogin = document.querySelector("#btn-login")
+    console.log(btnLogin)
+
+    btnBurguer.addEventListener("click",()=>{
+     
+        if (headerBoxRight.classList.contains("show")){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }else{
+            headerBoxRight.classList = "headerBoxRight justify-between items-center show"
+            btnBurguer.src = "../../assets/img/close.svg"
+        }
+        
+    })
+
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 500){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }
+    })
+
+    btnHome.addEventListener("click",()=>{
+        window.location.replace("../home/index.html")
+    })
+
+    btnLogin.addEventListener("click",()=>{
+            window.location.replace("../login/index.html")
+    })
+
+
 }
-
-
 
 //Chama todas as funções.
 function callFunctions(){
     page()
-    menu()
     register()
     pageWindow()
 }
