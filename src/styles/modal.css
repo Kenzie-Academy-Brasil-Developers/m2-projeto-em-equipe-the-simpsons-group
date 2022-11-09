@@ -39,9 +39,11 @@
 
 .modalAttPet {
     width: 620px;
-    height: 480px;
+    min-height: 400px;
+    height: fit-content;
     background-color: var(--color-brand-1);
     border-radius: 16px;
+    padding-bottom:40px ;
 }
 
 .modalHeader {
@@ -55,13 +57,15 @@
 
 .modalBody {
     width: 100%;
-    height: 400px;
+    min-height: 400px;
+    height: fit-content;
     background-color: var(--color-white-1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding-bottom: 15px;
 }
 
 .modalBody > form {

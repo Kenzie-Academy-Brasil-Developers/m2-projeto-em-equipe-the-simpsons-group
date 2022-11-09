@@ -153,8 +153,8 @@ export async function renderInfoProfile(){
         <div class="boxText flex flex-col gap-small items-center">
             <h2 class="textTitle color-brand-1 font-size-2">Dados pessoais</h2>
             <div class="textCont flex flex-col margin-bottom-small gap-small">
-                <p class="textName font-weight-3"><strong class="color-brand-1">Nome: </strong>${infoProfile.name}</p>
-                <p class="textEmail font-weight-3"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
+                <p class="textName font-weight-3 font-size-3 color-black-1"><strong class="color-brand-1">Nome: </strong>${infoProfile.name}</p>
+                <p class="textEmail font-weight-3 font-size-3 color-black-1"><strong class="color-brand-1">E-mail: </strong>${infoProfile.email}</p>
             </div>
             <div class="TextBtns flex gap-small">
                 <button class="refreshBtn button-default-brand-1">Atualizar informações</button>

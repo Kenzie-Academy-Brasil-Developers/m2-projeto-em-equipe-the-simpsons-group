@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/homer-simpson-revised');
+
 :root{
     --color-brand-1: #4E2096;
     --color-brand2: #B48CF2;
@@ -8,7 +10,7 @@
     --color-red-1:  #EA534A;
     --color-green-1:  #33CC66;
     --color-grey-1:  #EEEEEE;
-    --color-grey-2:#90A4AE;
+    --color-grey-2:white;
     --font-size-1: 1.75rem;
     --font-size-2: 1.5rem;
     --font-size-3: 1rem;
@@ -18,20 +20,52 @@
     --font-weight-1: 700;
     --font-weight-2: 600;
     --font-weight-3: 400;
-    --line-height: 150%
+    --line-height: 150%;
+    --font-family: 'Open Sans', sans-serif;
 }
 
-body{
-    font-family: 'Open Sans', sans-serif;
+.simpsonsMode:root{
+    --color-brand-1: #FED439FF;
+    --color-brand2: #FED43999;
+    --color-black-1:  #FFFFFF;
+    --color-white-1:  #197EC0FF;
+    --color-red-1:  white;
+    --color-green-1:  #FED439FF;
+    --color-grey-1:  white;
+    --color-grey-2:#709AE199;   
+    --font-size-1: 2.75rem;
+    --font-size-2: 2.5rem;
+    --font-size-3: 1.35rem;
+    --font-size-4: 1.1rem;
+    --font-size-5: 1.0rem;
+    --font-size-6: 0.8rem;
+    --font-family: 'Homer Simpson Revised', sans-serif;
 }
+
+
+body{
+    font-family: var(--font-family);
+    background-color: var(--color-white-1);
+}
+
+
+
 .container{
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-button{
-    font-family: 'Open Sans', sans-serif;
+button, input ,select{
+    font-family: var(--font-family);
     font-size: var(--font-size-3);
     line-height: var(--line-height);
+}
+
+.bodyImg{
+    height: 100vh;
+    background-image: url("../../assets/img/4136850.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
