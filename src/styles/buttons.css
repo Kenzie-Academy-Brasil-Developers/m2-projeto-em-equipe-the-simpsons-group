@@ -18,21 +18,33 @@
     background: var(--color-brand-1);
     color: var(--color-white-1);
 }
+    .button-default-brand-1:hover{
+        opacity: 90%;
+    }
 
 
 .button-default-green-1{
     background: var(--color-green-1);
     color: var(--color-white-1);
 }
+    .button-default-green-1:hover{
+        opacity: 85%;
+    }
 
 .button-outline-brand-1{
     background: var(--color-white-1);
     border: 1px solid var(--color-brand-1);;
     color: var(--color-brand-1);
 }
+    .button-outline-brand-1:hover{
+        opacity: 75%;
+    }
 
 .button-outline-red-1{
     background: var(--color-white-1);
     border: 1px solid var(--color-red-1);
     color: var(--color-red-1);
 }
+    .button-outline-red-1:hover{
+        opacity: 75%;
+    }
