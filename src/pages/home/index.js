@@ -10,7 +10,6 @@ export async function renderListAllPets (){
     
     const ul =document.querySelector(".list-all-pets")
 
-    console.log(data)
 
     data.forEach(element => {
         

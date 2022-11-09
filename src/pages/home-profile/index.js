@@ -52,7 +52,6 @@ function createPet() {
 
         })
 
-        console.log(body)
         postCreatePet(body);
 
     })

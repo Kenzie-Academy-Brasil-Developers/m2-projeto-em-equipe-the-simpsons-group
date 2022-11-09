@@ -259,6 +259,7 @@ export function modalDeleteProfile() {
         await deleteUsers()
         setTimeout(() => {            
         localStorage.removeItem("@kenziePet:Token")
+        localStorage.removeItem("@KenziePets:SimpsonsMode")
         window.location.replace("../home/index.html")
         }, 3500);
     })

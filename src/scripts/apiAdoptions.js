@@ -24,7 +24,7 @@ export async function apiRequestCreateAdoption(petId){
     else{
         toast("fail","Não foi possível adotar esse pet!")
     }
-    console.log(responseJson)
+
    return responseJson
 }
 
@@ -58,6 +58,6 @@ export async function apiRequestDeleteAdoption(idAdoption){
         
     const response = await fetch(`https://m2-api-adot-pet.herokuapp.com/adoptions/delete/${idAdoption}`, options) // endpoint de registro 
     const responseJson = await response.json()
-    console.log(responseJson)
+    
    return responseJson
 }

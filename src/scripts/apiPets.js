@@ -40,8 +40,7 @@ export async function apiRequestAllPets (){
 
 export async function patchUpdatePet (id,body) {
 
-    console.log("ola")
-
+   
     const token = localStorage.getItem("@kenziePet:Token")
     try {
 
@@ -124,11 +123,15 @@ export async function deletePet (id) {
         });
 
         if(request.ok){
-
-            document.location.reload(true);
+            toast("sucess","Pet removido com sucesso")
+            setTimeout(() => {
+                document.location.reload(true);                
+            }, 3500);
 
         }
-
+        else{
+            toast("fail","Não foi possível remover o seu Pet")
+        }
     }catch(err) {
 
         console.log(err);
