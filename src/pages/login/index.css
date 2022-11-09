@@ -65,6 +65,7 @@ main, #input-email, #input-password, .button-login{
     body{
         background-image: url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png);
         background-size: cover;
+        height: 100%;
     }
 
     .cont-login{
