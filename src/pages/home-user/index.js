@@ -8,8 +8,7 @@ export async function renderListAllPetsForAdoption(){
     
     const ul =document.querySelector(".listAllPetsForAdoption")
     ul.innerHTML= ""
-     console.log(data)
-
+    
     data.forEach(element => {
         
 
@@ -57,7 +56,34 @@ export async function renderListAllPetsForAdoption(){
 
 
 window.addEventListener("DOMContentLoaded",()=>{
+        
+    const logo = document.querySelector("#logoTitle")
+    const tagHtml = document.querySelector("html")
+    const tagBody = document.querySelector("body")
+
+        if(localStorage.getItem("@KenziePets:SimpsonsMode")){
+            tagHtml.classList = "simpsonsMode"
+            tagBody.classList = "flex flex-col justify-between bodyImg"
+            logo.title = "Desativar Simpsons Mode"
+        }
+
+       
+            logo.addEventListener("click",(e)=>{
+            
+                if (tagHtml.classList.contains("simpsonsMode")){
+                    tagHtml.classList = ""
+                    tagBody.classList = "flex flex-col justify-between"
+                    logo.title = "Ativar Simpsons Mode"
+                    localStorage.removeItem("@KenziePets:SimpsonsMode")
+                }else{
+                    tagHtml.classList = "simpsonsMode"
+                    tagBody.classList = "flex flex-col justify-between bodyImg"
+                    logo.title = "Desativar Simpsons Mode"
+                    localStorage.setItem("@KenziePets:SimpsonsMode","true")
+                }
     
+            })
+   
 
     if(localStorage.getItem("@kenziePet:Token")){
         renderListAllPetsForAdoption()
@@ -93,6 +119,7 @@ window.addEventListener("DOMContentLoaded",()=>{
         btnLogout.addEventListener("click",(e)=>{
             window.location.replace("../home/index.html")
             localStorage.removeItem("@kenziePet:Token")
+            localStorage.removeItem("@KenziePets:SimpsonsMode")
         })
     }else{
         window.location.replace("../home/index.html")

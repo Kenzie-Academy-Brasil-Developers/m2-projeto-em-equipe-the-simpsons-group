@@ -211,6 +211,7 @@ const btnLogout = document.querySelector("#btn-logout")
     btnLogout.addEventListener("click",(e)=>{
         window.location.replace("../home/index.html");
         localStorage.removeItem("@kenziePet:Token");
+        localStorage.removeItem("@KenziePets:SimpsonsMode")
     })
 
     btnHome.addEventListener("click",(e)=>{
@@ -219,4 +220,29 @@ const btnLogout = document.querySelector("#btn-logout")
 
 
 
+const logo = document.querySelector("#logoTitle")
+const tagHtml = document.querySelector("html")
+const tagBody = document.querySelector("body")
 
+    if(localStorage.getItem("@KenziePets:SimpsonsMode")){
+        tagHtml.classList = "simpsonsMode"
+        tagBody.classList = "bodyImg"
+        logo.title = "Desativar Simpsons Mode"
+    }
+
+   
+        logo.addEventListener("click",(e)=>{
+        
+            if (tagHtml.classList.contains("simpsonsMode")){
+                tagHtml.classList = ""
+                tagBody.classList = ""
+                logo.title = "Ativar Simpsons Mode"
+                localStorage.removeItem("@KenziePets:SimpsonsMode")
+            }else{
+                tagHtml.classList = "simpsonsMode"
+                tagBody.classList = "bodyImg"
+                logo.title = "Desativar Simpsons Mode"
+                localStorage.setItem("@KenziePets:SimpsonsMode","true")
+            }
+
+        })

@@ -136,14 +136,7 @@ export function modalAttPet(id) {
 
     btnDelete.addEventListener("click", async() => {
 
-        console.log(id)
-        // const adoptions = await apiRequestAllAdoptions()
-        // const filter =  adoptions.filter((element)=>{
-        //         return element.pet.id == id
-        // })
-        // console.log(filter[0].id)
-        // apiRequestDeleteAdoption(filter[0].id)
-         deletePet(id);
+        deletePet(id);
 
     })
 
@@ -285,24 +278,3 @@ export function modalDeleteProfile() {
     body.append(modalWrapper);
 
 }
-/*
-
-<div class="modalWrapper flex justify-center items-center">
-    <div class="modalAttPet">
-            <div class="modalHeader flex justify-end items-center">
-                <img src="../../assets/img/Vector.svg" alt="">
-            </div>
-            <div class="modalBody flex justify-center items-center flex-col">
-                <p class="font-size-1 color-brand-1">Cadastrar Pet</p>
-
-                <form class="flex flex-col">
-                    <input type="text" id="name" placeholder="Nome" >
-                    <input type="text" id="species" placeholder="Raça">
-                    <input type="text" id="avatar_url" placeholder="Avatar">
-                    <button class="button-outline-brand-1">Cadastrar</button>
-                </form>
-            </div>
-    </div>
-</div>
-
-*/
