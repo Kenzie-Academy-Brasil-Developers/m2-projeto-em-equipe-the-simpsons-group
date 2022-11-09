@@ -10,7 +10,7 @@
 }
 
 .button-login-register{
-    border: 2px solid var(--color-black-1);
+    border: 1px solid var(--color-grey-2);
     padding: 1rem;
 }
 

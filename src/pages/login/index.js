@@ -1,111 +1,9 @@
 import {toast} from "../../scripts/toastfy.js"
 
+
 //Add a informação home no localstroage.
 function page(){
     localStorage.setItem("page", "login")
-}
-
-//Cria buttons para o formato de tela desktop
-function createButtonsDesktop(){
-
-    let container = document.querySelector(".cont-header-buttons")
-
-    container.innerHTML=""
-
-    let page = localStorage.getItem("page")
-
-    let a1 = document.createElement("a")
-    let a2 = document.createElement("a")
-
-    a1.classList.add("button-outline-brand-1", "font-size-3")
-    a2.classList.add("button-default-brand-1", "font-size-3")
-
-    if(page === "login"){
-        a1.setAttribute("href", "../../pages/register/index.html")
-        a2.setAttribute("href", "../../pages/home/index.html")
-
-        a1.innerText="Registrar"
-        a2.innerText="Home"
-    }
-
-    container.append(a1, a2,)
-}
-
-//Cria buttons para o formato de tela mobile.
-function createButtonsMobile(){
-
-    let container = document.querySelector(".cont-header-buttons")
-
-    let page = localStorage.getItem("page")
-
-    let a1 = document.createElement("a")
-    let a2 = document.createElement("a")
-    let div = document.createElement("div") 
-
-    a1.classList.add("button-outline-brand-1", "font-size-3")
-    a2.classList.add("button-default-brand-1", "font-size-3")
-    div.classList.add("cont-menu", "flex", "align-center", "justify-center", "gap-small")
-
-    if(page === "login"){
-        a1.setAttribute("href", "../../pages/register/index.html")
-        a2.setAttribute("href", "../../pages/home/index.html")
-
-        a1.innerText="Registrar"
-        a2.innerText="Home"
-    }
-
-    div.append(a1, a2)
-    container.append(div)
-}
-
-//Cria o menu hamburger
-function createMenuHamburger(){
-    let container = document.querySelector(".cont-header-buttons")
-
-    container.innerHTML=""
-
-    let value = false
-
-    let img = document.createElement("img")
-
-  
-    img.setAttribute("src", "../../assets/img/menu-burguer.svg")
-    
-
-    img.addEventListener("click", ()=>{
-        if(value === false){
-            createButtonsMobile()
-            value = true
-        }else if(value === true){
-            let menu = document.querySelector(".cont-menu")
-            container.removeChild(menu)
-            value = false
-        }
-    })
-
-    container.append(img)
-
-}
-
-//Fica monitorando a tela para a troca de buttons.
-function menu(){
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-        if(window.screen.width >= 800){
-            createButtonsDesktop()
-        }else{
-            createMenuHamburger()
-        }
-    })
-    
-    window.addEventListener("resize", ()=>{
-        if(window.screen.width >= 800){
-            createButtonsDesktop()
-        }else{
-            createMenuHamburger()
-        }
-    })
-              
 }
 
 
@@ -147,6 +45,7 @@ async function loginApi(data) {
     }
 }
 
+
 //Passa os dados do input e chama a função de loginApi.
 function login(){
 
@@ -175,18 +74,14 @@ function login(){
             }, 3500);
         }
 
-    
-       
     })
 }
 
+
+//Monitora a minha tela.
 function pageWindow(){
 
     let screenViewPort = document.querySelector(".screen-viewport")
-    let contLogin = document.querySelector(".cont-login")
-    let imgCat = document.querySelector(".img-cat")
-    let body = document.querySelector("body")
-   
 
     document.addEventListener("DOMContentLoaded", ()=>{
         if(window.screen.width >= 800){
@@ -207,11 +102,6 @@ function pageWindow(){
 
             div.append(img)
             screenViewPort.append(div)
-
-            imgCat.style.borderRadius="50%"
-            contLogin.style.padding="3rem"
-            contLogin.style.borderRadius="3rem"
-            body.style.backgroundImage="none"
             
         }else{
             let contImg = document.querySelector(".cont-img")
@@ -219,21 +109,8 @@ function pageWindow(){
             if(contImg !== null){
                 screenViewPort.removeChild(contImg)
             }
-            imgCat.style.borderRadius="0rem"
-            contLogin.style.padding="1rem"
-            contLogin.style.borderRadius="0rem"
-            body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
         }
 
-        if(window.screen.width < 390 && window.screen.height < 800){
-            body.style.height="100%"
-            body.style.position="sticky"
-            screenViewPort.style.margin="2rem 0rem 6rem 0rem"
-        }else{
-            body.style.height="100vh"
-            body.style.position="relative"
-            screenViewPort.style.margin="0rem"
-        }
     })
     
     window.addEventListener("resize", ()=>{
@@ -256,42 +133,57 @@ function pageWindow(){
             div.append(img)
             screenViewPort.append(div)
 
-            imgCat.style.borderRadius="50%"
-            contLogin.style.padding="3rem"
-            contLogin.style.borderRadius="3rem"
-            body.style.backgroundImage="none"
         }else{
             let contImg = document.querySelector(".cont-img")
 
             if(contImg !== null){
                 screenViewPort.removeChild(contImg)
             }
-            imgCat.style.borderRadius="0rem"
-            contLogin.style.padding="1rem"
-            contLogin.style.borderRadius="0rem"
-            body.style.backgroundImage="url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png)"
-        }
-
-        if(window.screen.width < 390 && window.screen.height < 800){
-            body.style.height="100%"
-            body.style.position="sticky"
-            screenViewPort.style.margin="2rem 0rem 6rem 0rem"
-        }else{
-            body.style.height="100vh"
-            body.style.position="relative"
-            screenViewPort.style.margin="0rem"
         }
     })
+
+    const btnBurguer = document.querySelector("#btn-burguer")
+    const headerBoxRight = document.querySelector(".headerBoxRight")
+    const btnHome = document.querySelector("#btn-home")
+    const btnRegister = document.querySelector("#btn-register")
+
+    btnBurguer.addEventListener("click",(e)=>{
+     
+        if (headerBoxRight.classList.contains("show")){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }else{
+            headerBoxRight.classList = "headerBoxRight justify-between items-center show"
+            btnBurguer.src = "../../assets/img/close.svg"
+        }
+        
+    })
+
+    window.addEventListener("resize", ()=>{
+        if(window.screen.width >= 500){
+            headerBoxRight.classList = "headerBoxRight justify-between items-center"
+            btnBurguer.src = "../../assets/img/menu-burguer.svg"
+        }
+    })
+
+    btnHome.addEventListener("click",(e)=>{
+        window.location.replace("../home/index.html")
+    })
+
+    btnRegister.addEventListener("click",(e)=>{
+        window.location.replace("../register/index.html")
+    })
 }
+
 
 //Chama todas as funções.
 function callFunctions(){
     page()
-    menu()
     changeImg()
     login()
     pageWindow()
 }
+
 
 callFunctions()
 
