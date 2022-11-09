@@ -29,26 +29,6 @@ function changeImg(){
 
 }
 
-//Animações 
-function catsAnimations(){
-
-    let catSpying = document.querySelector(".cat-spying")
-    let petsTalking = document.querySelector(".img-pets-talking")
-
-    setTimeout(() => {
-        let valueSpying = catSpying.getBoundingClientRect().x 
-        catSpying.style.left= `${valueSpying+130}px`
-        setTimeout(()=>{
-            catSpying.setAttribute("src", "https://i.ibb.co/2jqZbbc/gato.png")
-        }, 1000)
-    },7000)
-
-    setTimeout(() => {
-        petsTalking.setAttribute("src", "https://i.ibb.co/wWV0zSP/Acho-que-isso-n-o-um-gato.png")
-    },3000)
-    
-}
-
 //Puxa os dados do input e manda para Api.
 function register(){
 
@@ -149,7 +129,6 @@ function callFunctions(){
     page()
     register()
     pageWindow()
-    catsAnimations()
 }
 
 callFunctions()
