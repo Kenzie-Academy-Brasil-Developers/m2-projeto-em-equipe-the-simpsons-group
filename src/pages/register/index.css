@@ -32,7 +32,7 @@ main, #input-email, #input-password,
 
 .cont-register{
     margin: 0 auto;
-    z-index: 1;
+    z-index: 0;
     border-radius: 3rem;
     max-width: 30rem;
     height: 45rem;
