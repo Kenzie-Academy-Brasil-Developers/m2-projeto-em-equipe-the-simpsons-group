@@ -17,7 +17,7 @@ main{
     max-width: 400px;
     gap: 60px;
     overflow: auto;
-    height: 350px;
+    height: 360px;
     padding: 1rem 0;
 }
 
@@ -26,7 +26,7 @@ main{
         box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
         border-radius: 4px;
         min-width: 200px;
-        height: fit-content;
+        height: 310px;
         padding-bottom: 5px;
     }
 
@@ -38,7 +38,6 @@ main{
         }
 
         .card-pet > h3{
-            padding: 0 0.5rem;
             text-align: center;
             width: 100%;
             white-space: nowrap; 

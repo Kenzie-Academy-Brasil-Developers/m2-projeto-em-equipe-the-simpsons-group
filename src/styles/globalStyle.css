@@ -11,6 +11,8 @@
     --color-green-1:  #33CC66;
     --color-grey-1:  #EEEEEE;
     --color-grey-2:white;
+    --color-grey-3: rgb(169, 169, 169) ;
+    --color-grey-4:white;
     --font-size-1: 1.75rem;
     --font-size-2: 1.5rem;
     --font-size-3: 1rem;
@@ -32,7 +34,8 @@
     --color-red-1:  white;
     --color-green-1:  #FED439FF;
     --color-grey-1:  white;
-    --color-grey-2:#709AE199;   
+    --color-grey-2:#709AE199; 
+    --color-grey-4:#197EC0FF;  
     --font-size-1: 2.75rem;
     --font-size-2: 2.5rem;
     --font-size-3: 1.35rem;
@@ -69,3 +72,17 @@ button, input ,select{
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+ul::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  ul::-webkit-scrollbar-track {
+    background: var(--color-white-1);        /* color of the tracking area */
+  }
+  
+  ul::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-1);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid var(--color-white-1);  /* creates padding around scroll thumb */
+  }

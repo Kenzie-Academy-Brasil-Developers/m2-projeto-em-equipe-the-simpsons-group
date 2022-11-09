@@ -60,6 +60,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     const logo = document.querySelector("#logoTitle")
     const tagHtml = document.querySelector("html")
     const tagBody = document.querySelector("body")
+    const audio = new Audio('../../assets/music/audio1.mp3');
 
         if(localStorage.getItem("@KenziePets:SimpsonsMode")){
             tagHtml.classList = "simpsonsMode"
@@ -75,11 +76,14 @@ window.addEventListener("DOMContentLoaded",()=>{
                     tagBody.classList = "flex flex-col justify-between"
                     logo.title = "Ativar Simpsons Mode"
                     localStorage.removeItem("@KenziePets:SimpsonsMode")
+                    audio.pause()
+                    audio.currentTime =0
                 }else{
                     tagHtml.classList = "simpsonsMode"
                     tagBody.classList = "flex flex-col justify-between bodyImg"
                     logo.title = "Desativar Simpsons Mode"
                     localStorage.setItem("@KenziePets:SimpsonsMode","true")
+                    audio.play();
                 }
     
             })

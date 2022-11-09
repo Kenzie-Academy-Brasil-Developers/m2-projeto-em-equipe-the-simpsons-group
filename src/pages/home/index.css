@@ -1,9 +1,11 @@
 body{
     height: 100vh;
-    
+    background-image: url(https://i.ibb.co/4Js3fQc/Design-sem-nome-min.png);
+    background-size: cover;
 }
 main{
     margin-top: 50px;
+   
 }
 .list-all-pets{
     width: 90%;
@@ -11,7 +13,7 @@ main{
     max-width: 400px;
     gap: 60px;
     overflow: auto;
-    height: 290px;
+    height: 360px;
     padding: 1rem 0;
 }
 
@@ -55,6 +57,9 @@ main{
 
 
 @media(min-width:500px){
+    body{
+        background-image: none;
+    }
     .list-all-pets{
         flex-wrap: wrap;
         max-width: 500px;

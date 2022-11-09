@@ -10,10 +10,15 @@
 }
 
 .button-login-register{
-    border: 1px solid var(--color-grey-2);
+    background: var(--color-brand-1);
+    color: var(--color-white-1);
+    border: 1px solid var(--color-grey-3);
     padding: 1rem;
 }
-
+    .button-login-register:hover{
+        opacity: 90%;
+    }
+    
 .button-default-brand-1{
     background: var(--color-brand-1);
     color: var(--color-white-1);

@@ -223,11 +223,14 @@ const btnLogout = document.querySelector("#btn-logout")
 const logo = document.querySelector("#logoTitle")
 const tagHtml = document.querySelector("html")
 const tagBody = document.querySelector("body")
+const boxLabel = document.querySelector(".boxLabel")
+const audio = new Audio('../../assets/music/audio1.mp3');
 
     if(localStorage.getItem("@KenziePets:SimpsonsMode")){
         tagHtml.classList = "simpsonsMode"
         tagBody.classList = "bodyImg"
         logo.title = "Desativar Simpsons Mode"
+        boxLabel.classList = "boxLabel cover"
     }
 
    
@@ -237,12 +240,17 @@ const tagBody = document.querySelector("body")
                 tagHtml.classList = ""
                 tagBody.classList = ""
                 logo.title = "Ativar Simpsons Mode"
+                boxLabel.classList = "boxLabel"
                 localStorage.removeItem("@KenziePets:SimpsonsMode")
+                audio.pause()
+                audio.currentTime = 0
             }else{
                 tagHtml.classList = "simpsonsMode"
                 tagBody.classList = "bodyImg"
                 logo.title = "Desativar Simpsons Mode"
+                boxLabel.classList = "boxLabel cover"
                 localStorage.setItem("@KenziePets:SimpsonsMode","true")
+                audio.play();
             }
 
         })

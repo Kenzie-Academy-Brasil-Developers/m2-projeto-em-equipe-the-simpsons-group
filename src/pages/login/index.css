@@ -28,7 +28,7 @@ main, #input-email, #input-password, .button-login{
 
 .cont-login{
     position: relative;
-    border: 1px solid var(--color-grey-2);
+    border: 1px solid var(--color-grey-3);
     padding: 3rem;
     background: var(--color-grey-1);
 }
@@ -46,7 +46,7 @@ main, #input-email, #input-password, .button-login{
 .img-cat{
     position: absolute;
     top: 1rem;
-    border: 1px solid var(--color-grey-2);
+    border: 1px solid var(--color-grey-3);
     border-radius: 50%;
     width: 250px;
 }
