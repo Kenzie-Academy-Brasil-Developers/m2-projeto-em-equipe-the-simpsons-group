@@ -112,7 +112,7 @@ function pageWindow(){
     let form = document.querySelector("form")
 
     document.addEventListener("DOMContentLoaded", ()=>{
-        if(window.screen.width >= 1400){
+        if(window.screen.width >= 1001 && window.screen.height >= 901){
 
             let imgSpying = document.querySelector(".cat-spying")
             let imgTalking = document.querySelector(".cont-pets-talking")
@@ -178,7 +178,7 @@ function pageWindow(){
     })
     
     window.addEventListener("resize", ()=>{
-        if(window.screen.width >= 1400){
+        if(window.screen.width >= 1001 && window.screen.height >= 901){
             let imgSpying = document.querySelector(".cat-spying")
             let imgTalking = document.querySelector(".cont-pets-talking")
             let contChangeImg = document.querySelector(".cont-change-img")
